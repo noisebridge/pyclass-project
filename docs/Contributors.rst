@@ -1,4 +1,4 @@
 Contributors
 ------------
  - eleddy
- - chingchangtest
+ - Neil Basu (nbasu02)
