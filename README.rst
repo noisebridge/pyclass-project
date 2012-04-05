@@ -6,8 +6,9 @@ Installation Instructions
 
 Checkout a copy from git, then run::
 
-  > git clone
-  > /path/to/your/python bootstrap.py
+  > git clone git@github.com:noisebridge/pyclass-project.git
+  > cd pyclass-project
+  > python bootstrap.py
   > ./bin/buildout
 
 
