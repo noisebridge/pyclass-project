@@ -1,0 +1,39 @@
+Metadata-Version: 1.0
+Name: django-dbtemplates
+Version: 1.2.1
+Summary: Template loader for templates stored in the database
+Home-page: http://django-dbtemplates.readthedocs.org/
+Author: Jannis Leidel
+Author-email: jannis@leidel.info
+License: UNKNOWN
+Description: django-dbtemplates
+        ==================
+        
+        ``dbtemplates`` is a Django app that consists of two parts:
+        
+        1. It allows you to store templates in your database
+        2. It provides `template loader`_ that enables Django to load the
+           templates from the database
+        
+        It also features optional support for versioned storage and django-admin
+        command, integrates with Django's caching system and the admin actions.
+        
+        Please see http://django-dbtemplates.readthedocs.org/ for more details.
+        
+        The source code and issue tracker can be found on Github:
+        
+        https://github.com/jezdez/django-dbtemplates
+        
+        .. _template loader: http://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Framework :: Django

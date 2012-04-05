@@ -1,0 +1,16 @@
+{% extends "frontendadmin/base.html" %}
+
+{% comment %}
+
+    First, a view would redirect to the last page the user came from. If
+    this is not available (because somebody fiddled in the url), we redirect
+    to this common success page.
+
+    Normally a user should never see this page.
+
+{% endcomment %}
+
+{% block frontendadmin_content %}
+	<h2>Success! Your object was changed.</h2>
+	<p>Click the back-button in your browser or go to the <a href="/">frontpage</a>.</p>
+{% endblock %}

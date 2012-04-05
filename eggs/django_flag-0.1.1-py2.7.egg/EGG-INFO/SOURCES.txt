@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.cfg
+setup.py
+django_flag.egg-info/PKG-INFO
+django_flag.egg-info/SOURCES.txt
+django_flag.egg-info/dependency_links.txt
+django_flag.egg-info/not-zip-safe
+django_flag.egg-info/top_level.txt
+docs/index.txt
+flag/__init__.py
+flag/admin.py
+flag/models.py
+flag/urls.py
+flag/views.py
+flag/templates/flag/flag_form.html
+flag/templatetags/__init__.py
+flag/templatetags/flagtags.py

@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: django-friends
+Version: 0.1.5
+Summary: friendship, contact and invitation management for the Django web framework
+Home-page: http://github.com/jtauber/django-friends/
+Author: James Tauber
+Author-email: jtauber@jtauber.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django

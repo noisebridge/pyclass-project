@@ -1,0 +1,8 @@
+README.txt
+atomformat.py
+setup.cfg
+setup.py
+django_atomformat.egg-info/PKG-INFO
+django_atomformat.egg-info/SOURCES.txt
+django_atomformat.egg-info/dependency_links.txt
+django_atomformat.egg-info/top_level.txt

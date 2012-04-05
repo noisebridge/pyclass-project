@@ -1,0 +1,18 @@
+Metadata-Version: 1.0
+Name: django-photologue
+Version: 2.3
+Summary: Powerful image management for the Django web framework.
+Home-page: http://code.google.com/p/django-photologue/
+Author: Justin Driscoll
+Author-email: justin@driscolldev.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Utilities

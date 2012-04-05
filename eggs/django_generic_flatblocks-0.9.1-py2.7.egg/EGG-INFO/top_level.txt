@@ -1,0 +1,1 @@
+django_generic_flatblocks

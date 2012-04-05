@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% if group %}
+    {% blocktrans %}
+        <h1> Wiki for {{ group_type }} <a href="{{ group_url }}">{{ group_name }}</a> </h1>
+    {% endblocktrans %}
+{% endif %}

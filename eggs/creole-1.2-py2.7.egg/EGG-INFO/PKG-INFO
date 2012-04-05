@@ -1,0 +1,41 @@
+Metadata-Version: 1.0
+Name: creole
+Version: 1.2
+Summary: Parser for WikiCreole text markup.
+Home-page: http://oink.sheep.art.pl/WikiCreole%20parser%20in%20python
+Author: Radomir Dopieralski, Thomas Waldmann
+Author-email: creole@sheep.art.pl
+License: GNU General Public License (GPL), BSD
+Download-URL: http://oink.sheep.art.pl/+download/creole-1.2.tar.gz
+Description: 
+            Creole wiki markup parser
+        
+            See http://wikicreole.org/ for latest specs.
+        
+            Notes:
+            * No markup allowed in headings.
+              Creole 1.0 does not require us to support this.
+            * No markup allowed in table headings.
+              Creole 1.0 does not require us to support this.
+            * No (non-bracketed) generic url recognition: this is "mission impossible"
+              except if you want to risk lots of false positives. Only known protocols
+              are recognized.
+            * We do not allow ":" before "//" italic markup to avoid urls with
+              unrecognized schemes (like wtf://server/path) triggering italic rendering
+              for the rest of the paragraph.
+        
+            @copyright: 2007 MoinMoin:RadomirDopieralski (creole 0.5 implementation),
+                        2007 MoinMoin:ThomasWaldmann (updates)
+            @license: GNU GPL, see COPYING for details.
+            @license: BSD, see COPYING for details.
+        
+Keywords: wiki wikicreole creole markup text
+Platform: any
+Classifier: Topic :: Text Processing :: Markup
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: BSD License

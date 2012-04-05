@@ -1,0 +1,16 @@
+CONTRIBUTORS.txt
+LICENSE.txt
+MANIFEST.in
+README.txt
+setup.cfg
+setup.py
+django_sorting/__init__.py
+django_sorting/middleware.py
+django_sorting/models.py
+django_sorting.egg-info/PKG-INFO
+django_sorting.egg-info/SOURCES.txt
+django_sorting.egg-info/dependency_links.txt
+django_sorting.egg-info/not-zip-safe
+django_sorting.egg-info/top_level.txt
+django_sorting/templatetags/__init__.py
+django_sorting/templatetags/sorting_tags.py

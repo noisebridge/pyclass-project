@@ -1,0 +1,612 @@
+[
+    {
+        "pk": 1,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*?flickr.com/\\S*",
+            "endpoint": "http://www.flickr.com/services/oembed/",
+            "name": "Flickr",
+            "format": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*?viddler.com/\\S*",
+            "endpoint": "http://lab.viddler.com/services/oembed/",
+            "name": "Viddler",
+            "format": 1
+        }
+    },
+    {
+        "pk": 3,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://qik.com/\\S*",
+            "endpoint": "http://qik.com/api/oembed.json",
+            "name": "Qik",
+            "format": 1
+        }
+    },
+    {
+        "pk": 4,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*?pownce.com/\\S*",
+            "endpoint": "http://api.pownce.com/2.1/oembed.json",
+            "name": "Pownce",
+            "format": 1
+        }
+    },
+    {
+        "pk": 5,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*?revision3.com/\\S*",
+            "endpoint": "http://revision3.com/api/oembed/",
+            "name": "Revision3",
+            "format": 1
+        }
+    },
+    {
+        "pk": 6,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*.collegehumor.com/video:\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "CollegeHumor Video (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 7,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*.funnyordie.com/videos/\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "Funny or Die Video (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 8,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://video.google.com/videoplay?\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "Google Video (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 9,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.hulu.com/watch/\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "Hulu (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 10,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*.metacafe.com/watch/\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "Metacafe (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 11,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://twitter.com/\\S*/statuses/\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "Twitter Status (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 12,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*.wikipedia.org/wiki/\\S*",
+            "endpoint": "http://oohembed.com/oohembed/",
+            "name": "Wikipedia (OohEmbed)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 13,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*.youtube.com/watch\\S*",
+            "endpoint": "http://www.youtube.com/oembed",
+            "name": "YouTube",
+            "format": 1
+        }
+    },
+    {
+        "pk": 14,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://vimeo.com/\\S*",
+            "endpoint": "http://vimeo.com/api/oembed.json",
+            "name": "Vimeo",
+            "format": 1
+        }
+    },
+    {
+        "pk": 15,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.slideshare.net/\\S*/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "SlideShare (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 16,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*.scribd.com/doc/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Scribd (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 17,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://screenr.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Screenr (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 18,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.5min.com/Video/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "5min (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 19,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.howcast.com/videos/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Howcast (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 20,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://\\S*?screencast.com/\\S*/media/\\S*|http://\\S*?screencast.com/t/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Screencast (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 21,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.clearspring.com/widgets/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Clearspring (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 22,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://my.opera.com/\\S*/albums/show.dml\\?id=\\S*|http://my.opera.com/\\S*/albums/showpic.dml\\?album=\\S*&picture=\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "My Opera (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 23,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*yfrog.\\S*/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Yfrog (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 24,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://tweetphoto.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "TweetPhoto (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 25,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*twitpic.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "TwitPic (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 26,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*imgur.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Imgur (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 27,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://twitgoo.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "TwitGoo (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 28,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://i\\S*.photobucket.com/albums/\\S*|http://gi\\S*.photobucket.com/groups/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Photobucket (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 29,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://phodroid.com/\\S*/\\S*/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Phodroid (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 30,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://xkcd.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "xkcd (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 31,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*?23hq.com/\\S*/photo/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "23 HQ (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 32,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://\\S*amazon.\\S*/gp/product/\\S*|http://\\S*amazon.\\S*/\\S*/dp/\\S*|http://\\S*amazon.\\S*/dp/\\S*|http://\\S*amazon.\\S*/o/ASIN/\\S*|http://\\S*amazon.\\S*/gp/offer-listing/\\S*|http://\\S*amazon.\\S*/\\S*/ASIN/\\S*|http://\\S*amazon.\\S*/gp/product/images/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Amazon (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 33,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.veoh.com/\\S*/watch/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Veoh (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 34,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*justin.tv/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Justin.tv (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 35,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.ustream.tv/(recorded|channel)/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "UStream (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 36,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://\\S*.dailymotion.com/video/\\S*|http://\\S*.dailymotion.com/\\S*/video/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Daily Motion (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 37,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.twitvid.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "TwitVid (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 38,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.break.com/\\S*/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Break.com (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 39,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://(www|vids).myspace.com/index.cfm\\?fuseaction=\\S*&videoid\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Myspace Videos (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 40,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*blip.tv/file/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Blip.tv (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 41,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*revver.com/video/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Revver (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 42,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://video.yahoo.com/watch/\\S*/\\S*|http://video.yahoo.com/network/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Yahoo! Video (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 43,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*?liveleak.com/view?\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "LiveLeak (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 44,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://animoto.com/(play|s)/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Animoto (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 45,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://dotsub.com/view/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "dotSUB (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 46,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://soundcloud.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "SoundCloud (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 47,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.lala.com/#*(album|song)/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Lala (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 48,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://movieclips.com/watch/\\S*/\\S*/|http://movieclips.com/watch/\\S*/\\S*/\\S*/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Movie Clips (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 49,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*crackle.com/c/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Crackle (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 50,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.fancast.com/\\S*/videos",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Fancast (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 51,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.ted.com/talks/\\S*.html",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "TED (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 52,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*omnisio.com/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Omnisio (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 53,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*nfb.ca/film/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "NFB (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 54,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "(http://www.thedailyshow.com/(watch|full-episodes)/\\S*|http://www.thedailyshow.com/collection/\\S*/\\S*/\\S*)",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "The Daily Show (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 55,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://movies.yahoo.com/movie/\\S*/(video|info|trailer)/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Yahoo! Movies",
+            "format": 1
+        }
+    },
+    {
+        "pk": 56,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.colbertnation.com/(the-colbert-report-collections|full-episodes|the-colbert-report-videos)/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Colbert Nation (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 57,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.comedycentral.com/videos/index.jhtml?\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Comedy Central (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 58,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://\\S*theonion.com/video/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "The Onion (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 59,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://wordpress.tv/\\S*/\\S*/\\S*/\\S*/",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "WordPress TV (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 60,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.traileraddict.com/(trailer|clip|poster)/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "Trailer Addict (Embedly)",
+            "format": 1
+        }
+    },
+    {
+        "pk": 61,
+        "model": "oembed.providerrule",
+        "fields": {
+            "regex": "http://www.escapistmagazine.com/videos/\\S*",
+            "endpoint": "http://api.embed.ly/v1/api/oembed",
+            "name": "The Escapist (Embedly)",
+            "format": 1
+        }
+    }
+]

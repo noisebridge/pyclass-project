@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: django-wikiapp
+Version: 0.2.0
+Summary: A simple pluggable wiki application for Django with revision and multiple markup support.
+Home-page: http://launchpad.net/django-wikiapp/
+Author: Eduardo de Oliveira Padoan
+Author-email: eduardo.padoan@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: wiki,django
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
