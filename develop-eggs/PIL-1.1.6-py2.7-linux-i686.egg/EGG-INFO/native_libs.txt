@@ -1,2 +1,0 @@
-_imagingmath.so
-_imaging.so

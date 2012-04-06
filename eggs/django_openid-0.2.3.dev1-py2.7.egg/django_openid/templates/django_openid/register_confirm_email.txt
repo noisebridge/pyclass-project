@@ -1,3 +1,0 @@
-Click this link to confirm your account:
-
-{{ url }}

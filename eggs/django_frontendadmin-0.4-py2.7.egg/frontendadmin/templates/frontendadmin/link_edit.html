@@ -1,6 +1,0 @@
-{% load i18n %}
-{% if has_permission %}
-<a class="frontendadmin frontendadmin_edit" href="{{ edit_link }}?next={{ next_link }}">
-    {% if label %}{{ label }}{% else %}{% trans "Change" %}{% endif %}
-</a>
-{% endif %}

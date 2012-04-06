@@ -1,6 +1,0 @@
-zc.buildout
-setuptools
-hexagonit.recipe.download
-
-[test]
-zope.testing
