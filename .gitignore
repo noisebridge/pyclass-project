@@ -1,7 +1,12 @@
-.DS_Store
 *.pyc
 *.pyo
-parts
-bin
 .installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+*.egg-info
 *.egg
+.mr.developer.cfg
