@@ -6,7 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'noiselist.views.index'),
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
+    # Sets up default URLs for django-registration
+    (r'^accounts/', include('registration.backends.default.urls')),
+    # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
