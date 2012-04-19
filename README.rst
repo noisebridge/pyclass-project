@@ -7,16 +7,18 @@ This is the repository for the Noisebridge Python class project.
 
 Installation using buildout
 ===========================
+To install run the following commands
 
+1. Clone Repo from github
 ::
 
-  # Get pyclass-project from github
-  git clone git@github.com:noisebridge/pyclass-project.git
+    git clone git@github.com:noisebridge/pyclass-project.git
+    cd pyclass-project
 
-  # Generate the project buildout environment
-  cd pyclass-project
-  python bootstrap.py
-  ./bin/buildout
+2. Run the bootstrap to setup the environment.
+::
+    python bootstrap.py
+    ./bin/buildout
 
 
 Running the project
