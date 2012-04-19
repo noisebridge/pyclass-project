@@ -20,23 +20,13 @@ To install run the following commands
     python bootstrap.py
     ./bin/buildout
 
-
-Running the project
-===================
-
+3. sync the django database
 ::
+    bin/django syncdb
 
-  # Create mysite database
-  #note that bin/django acts similarly to a typical django cmd "python manage.py"
-  cd mysite
-  bin/django syncdb
-
-  # Launch mysite django application
-  bin/django runserver
-
-
-Issues found
-============
+4. Start the app
+::
+    bin/django runserver
 
 
 
