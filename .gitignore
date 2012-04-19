@@ -10,5 +10,6 @@ parts
 *.egg-info
 *.egg
 .mr.developer.cfg
+*.DS_Store
 
 mydatabase.db
