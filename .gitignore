@@ -10,3 +10,5 @@ parts
 *.egg-info
 *.egg
 .mr.developer.cfg
+
+mydatabase.db
