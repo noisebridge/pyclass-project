@@ -29,4 +29,9 @@ To install run the following commands
     bin/django runserver
 
 
+5. Copy the http:// address into your web browser
+::
+i.e. Development server is running at http://127.0.0.1:8000/
+
+Type admin and enter your user name and password
 
