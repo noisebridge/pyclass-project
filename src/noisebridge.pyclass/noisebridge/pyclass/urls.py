@@ -5,9 +5,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pyclass.views.home', name='home'),
-    # url(r'^pyclass/', include('pyclass.foo.urls')),
+    url(r'^$', 'pyclass.profiles.views.index'),
+
+    # Sets up default URLs for django-registration
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

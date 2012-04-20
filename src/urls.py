@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', 'noiselist.views.index'),
+    (r'^$', 'profiles.views.index'),
     # Sets up default URLs for django-registration
     (r'^accounts/', include('registration.backends.default.urls')),
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
