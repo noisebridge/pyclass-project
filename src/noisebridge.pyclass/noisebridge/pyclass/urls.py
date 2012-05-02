@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'pyclass.profiles.views.index'),
+    url(r'^$', 'pyclass.views.index'),
 
     # Sets up default URLs for django-registration
     url(r'^accounts/', include('registration.backends.default.urls')),
