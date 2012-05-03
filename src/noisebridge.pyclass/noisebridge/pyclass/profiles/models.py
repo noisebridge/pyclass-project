@@ -10,6 +10,9 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.user.username
 
+    class Meta:
+        ordering = ["user"]
+
 
 class Interest(models.Model):
     user = models.ManyToManyField(UserProfile)
@@ -17,6 +20,9 @@ class Interest(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        ordering = ["name"]
 
 
 def create_user_profile(sender, instance, created, **kwargs):
