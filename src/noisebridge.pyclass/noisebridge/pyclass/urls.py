@@ -8,7 +8,10 @@ urlpatterns = patterns('',
     url(r'^$', 'pyclass.views.index'),
 
     # Sets up default URLs for django-registration
-    url(r'^accounts/', include('registration.backends.default.urls')),
+    #url(r'^accounts/', include('registration.backends.default.urls')),
+
+    #Simplified registration (no email sent)
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
