@@ -22,6 +22,7 @@ from models import UserProfile, Interest
 class InterestAdmin(admin.ModelAdmin):
     """Defines customizations for the admin site"""
     search_fields = ("name",)
+    filter_horizontal = ("user",)
 
 
 admin.site.register(UserProfile)
