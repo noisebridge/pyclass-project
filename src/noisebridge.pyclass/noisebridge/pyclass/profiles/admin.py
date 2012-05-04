@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from models import UserProfile
-from models import Interest
+from models import UserProfile, Interest
+
 
 ##removed for now
 ##class ProfileInline(admin.StackedInline):
@@ -19,5 +19,10 @@ from models import Interest
 ##admin.site.register(User, CustomUserAdmin)
 
 
+class InterestAdmin(admin.ModelAdmin):
+    """Defines customizations for the admin site"""
+    search_fields = ("name",)
+
+
 admin.site.register(UserProfile)
-admin.site.register(Interest)
+admin.site.register(Interest, InterestAdmin)
