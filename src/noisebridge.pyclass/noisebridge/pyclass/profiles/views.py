@@ -2,7 +2,11 @@ from django.shortcuts import render_to_response
 from pyclass.profiles.models import Interest
 
 
-def search(request):
+def SearchInterests(request):
+    """
+    Returns a list with all interests that contain (case insensitive) the string "q".
+    Validates against empty strings.
+    """
     errors = []
     if "q" in request.GET:
         q = request.GET["q"]
