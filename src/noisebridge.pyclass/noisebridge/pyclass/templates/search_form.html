@@ -6,7 +6,15 @@
 	<h1>Search for Interests</h1>
 {% endblock header %}
 {% block content %}
-	<form action="/search/" method="get">
+{% if errors %}
+		<ul>
+			{% for error in errors %}
+				{# CSS isn't working so I'm forcing it ATM, remove style attribute when it works #}
+				<li class = "error" style = "color: red;"> {{ error }} </li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<form action="" method="get">
 		<input type="text" name="q">
 		<input type="submit" value="Search">
 	</form>
