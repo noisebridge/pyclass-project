@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Search Results
+{% endblock title %}
+
+{% block content %}
+	<p>You searched for: <strong>{{  query }}</strong></p>
+	{% if interests %}
+		<p>Found {{ interests|length }} interest{{ interests|pluralize  }} matching your query</p>
+			{% for interest in interests %}
+				<p>Found {{ interest.userprofile_set.all|length }} 
+					user{{ interest.userprofile_set.all|pluralize }} with an interest in 
+					<strong>{{ interest }}</strong></p>
+				<ul>
+				{% for user in interest.userprofile_set.all %}
+					<li>{{ user }}</li> 
+				{% endfor %}
+				</ul>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No users matched your search criteria.</p>
+	{% endif %}
+{% endblock content %}
