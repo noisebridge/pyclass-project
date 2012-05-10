@@ -73,6 +73,10 @@ body {
     color: #c3c3c3;
 }
 
+.error_notification {
+    color: red;
+}
+
 ul.errorlist {
     margin: 0;
     padding: 0;
