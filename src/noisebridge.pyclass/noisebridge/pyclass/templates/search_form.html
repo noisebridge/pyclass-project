@@ -7,10 +7,9 @@
 {% endblock header %}
 {% block content %}
 {% if errors %}
-		<ul>
+		<ul class="errorlist">
 			{% for error in errors %}
-				{# CSS isn't working so I'm forcing it ATM, remove style attribute when it works #}
-				<li class = "error" style = "color: red;"> {{ error }} </li>
+				<li> {{ error }} </li>
 			{% endfor %}
 		</ul>
 	{% endif %}
