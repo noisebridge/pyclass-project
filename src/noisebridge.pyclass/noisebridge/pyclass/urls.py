@@ -7,8 +7,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'pyclass.views.index'),
-    url(r'^search/$', views.SearchInterests),
-    url(r'^addinterest/$', views.AddInterests),
+    url(r'^search/$', views.search_interests),
+    url(r'^addinterest/$', views.add_interests),
 
     # Sets up default URLs for django-registration
     #url(r'^accounts/', include('registration.backends.default.urls')),
