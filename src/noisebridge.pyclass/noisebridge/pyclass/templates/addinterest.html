@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+	Add Interests
+{% endblock title %}
+{% block header %}
+	<h1>Create Interests</h1>
+{% endblock header %}
+{% block content %}
+{% if errors %}
+		<ul class="errorlist">
+			{% for error in errors %}
+				<li> {{ error }} </li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<form action="" method="post">
+		{%csrf_token%}
+		<input type="text" name="interest">
+		<input type="submit" value="Add Interest">
+	</form>
+{% endblock content %}
