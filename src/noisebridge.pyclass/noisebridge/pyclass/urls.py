@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
+from pyclass.profiles import views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -6,6 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'pyclass.views.index'),
+    url(r'^search/$', views.SearchInterests),
 
     # Sets up default URLs for django-registration
     #url(r'^accounts/', include('registration.backends.default.urls')),
