@@ -3,20 +3,16 @@
 	Search
 {% endblock title %}
 
-{% block header %}
-{% endblock header %}
-
 {% block content %}
 	<h2>Search for Interests</h2>
-	{% if errors %}
-		<ul class="errorlist">
-			{% for error in errors %}
-				<li> {{ error }} </li>
-			{% endfor %}
-		</ul>
+	{% if form.errors %}
+		<p class="error_notification">Please correct the error{{ form.errors|pluralize }} below. </p>
 	{% endif %}
+
 	<form action="" method="get">
-		<input type="text" name="q">
-		<input type="submit" value="Search">
-	</form>
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Search">
+    </form>
 {% endblock content %}
