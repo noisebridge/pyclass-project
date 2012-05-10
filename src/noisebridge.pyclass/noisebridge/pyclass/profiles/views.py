@@ -1,9 +1,8 @@
 from django.shortcuts import render_to_response
-from django.core.context_processors import csrf
+from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from pyclass.profiles.models import Interest
 from pyclass.profiles.forms import SearchInterestForm, AddInterestForm
-from django.views.decorators.csrf import csrf_exempt
 
 
 def search_interests(request):
@@ -22,8 +21,6 @@ def search_interests(request):
     return render_to_response("search_form.html", {"form": form})
 
 
-#NOTE: blocks csrf, get function working correctly with csrf and then remove
-@csrf_exempt
 def add_interests(request):
     """
     Adds a new interest from user to database
@@ -33,14 +30,10 @@ def add_interests(request):
         if form.is_valid():
             i = Interest(name=form.cleaned_data["interest"])
             i.save()
-            # FIXME: when passing {"interest": i} throws TypeError (claims 3 args, wants 2)
             return HttpResponseRedirect("interest_submitted.html")
     else:
         form = AddInterestForm()
-    csrf_request = {}
-    csrf_request.update(csrf(request))
-    #FIXME: passing csrf_request to args throws TypeError "pop expected at least 1 arguments, got 0"
-    return render_to_response("addinterest.html", {"form": form})
+    return render_to_response("addinterest.html", {"form": form}, context_instance=RequestContext(request))
 
 
 def interest_submitted(request):
