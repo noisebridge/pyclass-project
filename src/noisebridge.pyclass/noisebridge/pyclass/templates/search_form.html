@@ -2,11 +2,13 @@
 {% block title %}
 	Search
 {% endblock title %}
+
 {% block header %}
-	<h1>Search for Interests</h1>
 {% endblock header %}
+
 {% block content %}
-{% if errors %}
+	<h2>Search for Interests</h2>
+	{% if errors %}
 		<ul class="errorlist">
 			{% for error in errors %}
 				<li> {{ error }} </li>

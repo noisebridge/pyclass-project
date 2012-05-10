@@ -1,12 +1,12 @@
 {% extends "base.html" %}
+
 {% block title %}
 	Add Interests
 {% endblock title %}
-{% block header %}
-	<h1>Create Interests</h1>
-{% endblock header %}
+
 {% block content %}
-{% if errors %}
+	<h2>Create Interests</h2>
+	{% if errors %}
 		<ul class="errorlist">
 			{% for error in errors %}
 				<li> {{ error }} </li>
