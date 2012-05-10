@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from pyclass.profiles.models import Interest
 from pyclass.profiles.forms import SearchInterestForm, AddInterestForm
 
@@ -21,6 +22,7 @@ def search_interests(request):
     return render_to_response("search_form.html", {"form": form})
 
 
+@login_required
 def add_interests(request):
     """
     Adds a new interest from user to database
