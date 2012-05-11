@@ -30,10 +30,15 @@ def add_interests(request):
     if request.method == "POST":
         form = AddInterestForm(request.POST)
         if form.is_valid():
-            i = Interest(name=form.cleaned_data["interest"])
-            i.save()
+            i = form.cleaned_data["interest"]
+            interest_list = Interest.objects.filter(name=i).count()
+            if not interest_list:
+                interest = Interest(name=i)
+                interest.save()
+            else:
+                interest = Interest.objects.get(name=i)
             profile = UserProfile.objects.get(user=request.user)
-            profile.interest.add(i)
+            profile.interest.add(interest)
             profile.save()
             return HttpResponseRedirect("interest_submitted.html")
     else:
