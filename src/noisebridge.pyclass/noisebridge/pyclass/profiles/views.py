@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from pyclass.profiles.models import Interest
+from pyclass.profiles.models import Interest, UserProfile
 from pyclass.profiles.forms import SearchInterestForm, AddInterestForm
 
 
@@ -32,6 +32,9 @@ def add_interests(request):
         if form.is_valid():
             i = Interest(name=form.cleaned_data["interest"])
             i.save()
+            profile = UserProfile.objects.get(user=request.user)
+            profile.interest.add(i)
+            profile.save()
             return HttpResponseRedirect("interest_submitted.html")
     else:
         form = AddInterestForm()
