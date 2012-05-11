@@ -48,3 +48,9 @@ def add_interests(request):
 
 def interest_submitted(request):
     return render_to_response("interest_submitted.html")
+
+
+@login_required
+def display_avatar(request):
+    profile = UserProfile.objects.get(user=request.user)
+    return render_to_response("display_avatar.html", {"profile": profile})

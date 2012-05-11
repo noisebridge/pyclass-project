@@ -15,8 +15,11 @@ class Interest(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
+    avatar = models.ImageField(upload_to="avatars",
+                               default="/media/avatars/default-avatar.png")
     biography = models.TextField(default='', blank=True)
     interest = models.ManyToManyField(Interest)
+    excellence = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.user.username
