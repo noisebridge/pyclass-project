@@ -19,13 +19,14 @@ def search_interests(request):
                 {"interests": interests, "query": query})
     else:
         form = SearchInterestForm()
-    return render_to_response("search_form.html", {"form": form})
+    return render_to_response("search_form.html", {"form": form},
+                             context_instance=RequestContext(request))
 
 
 @login_required
 def add_interests(request):
     """
-    Adds a new interest from user to database
+    Adds an interest to the user's profile. If it doesn't exist, adds it to database first.
     """
     if request.method == "POST":
         form = AddInterestForm(request.POST)
@@ -43,7 +44,8 @@ def add_interests(request):
             return HttpResponseRedirect("interest_submitted.html")
     else:
         form = AddInterestForm()
-    return render_to_response("addinterest.html", {"form": form}, context_instance=RequestContext(request))
+    return render_to_response("addinterest.html", {"form": form},
+                             context_instance=RequestContext(request))
 
 
 def interest_submitted(request):
@@ -53,4 +55,5 @@ def interest_submitted(request):
 @login_required
 def display_avatar(request):
     profile = UserProfile.objects.get(user=request.user)
-    return render_to_response("display_avatar.html", {"profile": profile})
+    return render_to_response("display_avatar.html", {"profile": profile},
+                             context_instance=RequestContext(request))
