@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.conf import settings
 
 
 class Interest(models.Model):
@@ -16,7 +17,7 @@ class Interest(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     avatar = models.ImageField(upload_to="avatars",
-                               default="/media/avatars/default-avatar.png")
+                               default=settings.STATIC_URL + "default-avatar.png")
     biography = models.TextField(default='', blank=True)
     interest = models.ManyToManyField(Interest)
     excellence = models.IntegerField(default=0)
