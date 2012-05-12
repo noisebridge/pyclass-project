@@ -13,5 +13,6 @@ parts
 *.DS_Store
 build
 mydatabase.db
-static
-settings.log
+*.log
+src/noisebridge.pyclass/noisebridge/pyclass/static
+src/noisebridge.pyclass/noisebridge/pyclass/media/avatars/**
