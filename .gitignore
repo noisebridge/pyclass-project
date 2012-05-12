@@ -13,3 +13,5 @@ parts
 *.DS_Store
 build
 mydatabase.db
+static
+settings.log
