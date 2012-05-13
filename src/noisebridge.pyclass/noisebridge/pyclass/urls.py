@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^$', 'pyclass.views.index'),
     url(r'^search/$', views.search_interests),
     url(r'^addinterest/$', views.add_interests),
-    url(r'^addinterest/interest_submitted.html$', views.interest_submitted),
+    url(r'^addinterest/interest_submitted/$', views.interest_submitted),
     url(r'^display_avatar$', views.display_avatar),
 
     # Sets up default URLs for django-registration
