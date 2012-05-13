@@ -15,11 +15,12 @@ def search_interests(request):
         if form.is_valid():
             query = form.cleaned_data["query"]
             interests = Interest.objects.filter(name__icontains=query)
-            return render_to_response("search_results.html",
-                {"interests": interests, "query": query})
+            return render_to_response("profiles/search_results.html",
+                                     {"interests": interests, "query": query},
+                                     context_instance=RequestContext(request))
     else:
         form = SearchInterestForm()
-    return render_to_response("search_form.html", {"form": form},
+    return render_to_response("profiles/search_form.html", {"form": form},
                              context_instance=RequestContext(request))
 
 
@@ -44,16 +45,16 @@ def add_interests(request):
             return HttpResponseRedirect("interest_submitted.html")
     else:
         form = AddInterestForm()
-    return render_to_response("addinterest.html", {"form": form},
+    return render_to_response("profiles/addinterest.html", {"form": form},
                              context_instance=RequestContext(request))
 
 
 def interest_submitted(request):
-    return render_to_response("interest_submitted.html")
+    return render_to_response("profiles/interest_submitted.html")
 
 
 @login_required
 def display_avatar(request):
     profile = UserProfile.objects.get(user=request.user)
-    return render_to_response("display_avatar.html", {"profile": profile},
+    return render_to_response("profiles/display_avatar.html", {"profile": profile},
                              context_instance=RequestContext(request))
