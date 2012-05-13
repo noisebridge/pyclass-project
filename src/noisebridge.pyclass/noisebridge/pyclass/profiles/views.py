@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from pyclass.profiles.models import Interest, UserProfile
@@ -15,13 +14,11 @@ def search_interests(request):
         if form.is_valid():
             query = form.cleaned_data["query"]
             interests = Interest.objects.filter(name__icontains=query)
-            return render_to_response("profiles/search_results.html",
-                                     {"interests": interests, "query": query},
-                                     context_instance=RequestContext(request))
+            return render(request, "profiles/search_results.html",
+                                     {"interests": interests, "query": query})
     else:
         form = SearchInterestForm()
-    return render_to_response("profiles/search_form.html", {"form": form},
-                             context_instance=RequestContext(request))
+    return render(request, "profiles/search_form.html", {"form": form})
 
 
 @login_required
@@ -45,20 +42,17 @@ def add_interests(request):
             return HttpResponseRedirect("interest_submitted/?interest_added=" + i)
     else:
         form = AddInterestForm()
-    return render_to_response("profiles/addinterest.html", {"form": form},
-                             context_instance=RequestContext(request))
+    return render(request, "profiles/addinterest.html", {"form": form})
 
 
 def interest_submitted(request):
     interest = None
     if "interest_added" in request.GET and request.GET["interest_added"]:
         interest = request.GET["interest_added"]
-    return render_to_response("profiles/interest_submitted.html", {"interest": interest},
-                             context_instance=RequestContext(request))
+    return render(request, "profiles/interest_submitted.html", {"interest": interest})
 
 
 @login_required
 def display_avatar(request):
     profile = UserProfile.objects.get(user=request.user)
-    return render_to_response("profiles/display_avatar.html", {"profile": profile},
-                             context_instance=RequestContext(request))
+    return render(request, "profiles/display_avatar.html", {"profile": profile})
