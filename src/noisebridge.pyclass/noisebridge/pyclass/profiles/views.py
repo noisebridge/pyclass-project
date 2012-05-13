@@ -50,6 +50,7 @@ def add_interests(request):
 
 
 def interest_submitted(request):
+    interest = None
     if "interest_added" in request.GET and request.GET["interest_added"]:
         interest = request.GET["interest_added"]
     return render_to_response("profiles/interest_submitted.html", {"interest": interest},

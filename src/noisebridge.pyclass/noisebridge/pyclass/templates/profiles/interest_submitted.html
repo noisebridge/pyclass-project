@@ -5,5 +5,9 @@
 {% endblock title %}
 
 {% block content %}
-    <h2>Interest "{{ interest }}" Saved!</h2>
+    {% if interest %}
+        <h2>Interest "{{ interest }}" Saved!</h2>
+    {% else %}
+        <h2>You didn't submit anything!</h2>
+    {% endif %}
 {% endblock content %}
