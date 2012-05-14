@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from pyclass.profiles.models import Interest, UserProfile
-from pyclass.profiles.forms import SearchInterestForm, AddInterestForm
+from pyclass.profiles.forms import SearchForm, AddInterestForm
 
 
 def search_interests(request):
@@ -10,14 +11,22 @@ def search_interests(request):
     Returns a list with all interests that contain (case insensitive) the string "query".
     """
     if "query" in request.GET:
-        form = SearchInterestForm(request.GET)
+        form = SearchForm(request.GET)
         if form.is_valid():
-            query = form.cleaned_data["query"]
-            interests = Interest.objects.filter(name__icontains=query)
+            cd = form.cleaned_data
+            query = cd["query"]
+            query_type = cd["query_type"]
+            interests = None
+            users = None
+            if query_type == "interest":
+                interests = Interest.objects.filter(name__icontains=query)
+            elif query_type == "user":
+                users = User.objects.filter(username__icontains=query)
             return render(request, "profiles/search_results.html",
-                                     {"interests": interests, "query": query})
+                         {"query": query, "query_type": query_type,
+                          "interests": interests, "users": users})
     else:
-        form = SearchInterestForm()
+        form = SearchForm()
     return render(request, "profiles/search_form.html", {"form": form})
 
 

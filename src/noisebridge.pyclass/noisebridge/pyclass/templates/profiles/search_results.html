@@ -5,21 +5,41 @@
 {% endblock title %}
 
 {% block content %}
-	<p>You searched for: <strong>{{  query }}</strong></p>
-	{% if interests %}
-		<p>Found {{ interests|length }} interest{{ interests|pluralize  }} matching your query</p>
-			{% for interest in interests %}
-				<p>Found {{ interest.userprofile_set.all|length }}
-					user{{ interest.userprofile_set.all|pluralize }} with an interest in
-					<strong>{{ interest }}</strong></p>
-				<ul>
-				{% for user in interest.userprofile_set.all %}
-					<li>{{ user }}</li>
+	{% if query_type == "interest" %}
+		<p>You searched for interests containing: <strong>{{ query }}</strong></p>
+		{% if interests %}
+			<p>Found {{ interests|length }} interest{{ interests|pluralize  }} matching your query</p>
+				{% for interest in interests %}
+					<p>Found {{ interest.userprofile_set.all|length }}
+						user{{ interest.userprofile_set.all|pluralize }} with an interest in
+						<strong>{{ interest }}</strong></p>
+					<ul>
+					{% for user in interest.userprofile_set.all %}
+						<li>{{ user }}</li>
+					{% endfor %}
+					</ul>
 				{% endfor %}
-				</ul>
-			{% endfor %}
-		</ul>
+			</ul>
+		{% else %}
+			<p>No users matched your search criteria.</p>
+		{% endif %}
+	{% else if query_type == "user" %}
+		<p>You searched for users containing: <strong>{{ query }}</strong></p>
+		{% if users %}
+			<p>Found {{ users|length }} user{{ users|pluralize  }} matching your query</p>
+				{% for user in users %}
+					<p> {{ user }} has the following interests:</p>
+					<ul>
+					{% for interest in user.userprofile.interest.all %}
+						<li>{{ interest }}</li>
+					{% endfor %}
+					</ul>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<p>No users matched your search criteria.</p>
+		{% endif %}
 	{% else %}
-		<p>No users matched your search criteria.</p>
+		<p>You did not provide any search terms.</p>
 	{% endif %}
 {% endblock content %}

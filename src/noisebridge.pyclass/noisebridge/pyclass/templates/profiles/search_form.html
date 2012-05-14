@@ -5,11 +5,8 @@
 
 {% block content %}
 	<h2>Search for Interests</h2>
-	{% if form.errors %}
-		<p class="error_notification">Please correct the error{{ form.errors|pluralize }} below. </p>
-	{% endif %}
 
-	<form action="" method="get">
+	<form action="." method="get">
         <table>
             {{ form.as_table }}
         </table>
