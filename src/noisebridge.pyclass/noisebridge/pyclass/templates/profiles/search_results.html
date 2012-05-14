@@ -19,23 +19,21 @@
 					{% endfor %}
 					</ul>
 				{% endfor %}
-			</ul>
 		{% else %}
 			<p>No users matched your search criteria.</p>
 		{% endif %}
-	{% else if query_type == "user" %}
+	{% elif query_type == "user" %}
 		<p>You searched for users containing: <strong>{{ query }}</strong></p>
 		{% if users %}
 			<p>Found {{ users|length }} user{{ users|pluralize  }} matching your query</p>
 				{% for user in users %}
-					<p> {{ user }} has the following interests:</p>
+					<p> User <strong>{{ user }}</strong> has the following interests:</p>
 					<ul>
 					{% for interest in user.userprofile.interest.all %}
 						<li>{{ interest }}</li>
 					{% endfor %}
 					</ul>
 				{% endfor %}
-			</ul>
 		{% else %}
 			<p>No users matched your search criteria.</p>
 		{% endif %}
