@@ -1,0 +1,28 @@
+#!/usr/bin/python
+import subprocess
+import optparse
+
+
+def main():
+    parser = optparse.OptionParser(description="Updates the project to the current state.",
+                                  usage="%prog [option]")
+    parser.add_option("--no-git", "-g", dest="no_git",
+                     action="store_true", default=False, help="Do not run 'git pull'.")
+    parser.add_option("--no-server", "-s", dest="no_server",
+                     action="store_true", default=False, help="Do not run the server.")
+    parser.add_option("--db-only", "-d", dest="db_only",
+                     action="store_true", default=False, help="Just update the database.")
+    options, arguments = parser.parse_args()
+    if not options.db_only:
+        if not options.no_git:
+            subprocess.call("git pull", shell=True)
+        subprocess.call("./bin/buildout", shell=True)
+        subprocess.call("bin/django collectstatic", shell=True)
+    subprocess.call("rm -f mydatabase.db", shell=True)
+    subprocess.call("bin/django syncdb", shell=True)
+    if not options.no_server or not options.db_only:
+        subprocess.call("bin/django runserver", shell=True)
+
+
+if __name__ == '__main__':
+    main()
