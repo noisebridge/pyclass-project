@@ -130,6 +130,16 @@ INSTALLED_APPS = (
 # Number of days allowed a user to respond to activation e-mail
 ACCOUNT_ACTIVATION_DAYS = 7
 
+# The location of a class defining user profiles in the form "app.class"
+AUTH_PROFILE_MODULE = "profiles.UserProfile"
+
+# Overrides get_absolute_url()
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda o: "/accounts/profile/%s" % o.username,
+}
+
+LOGIN_REDIRECT_URL = "/"
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
