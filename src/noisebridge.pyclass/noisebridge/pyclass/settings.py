@@ -124,7 +124,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'pyclass.profiles'
+    'pyclass.profiles',
+    'pyclass.todo'
 )
 
 # Number of days allowed a user to respond to activation e-mail
