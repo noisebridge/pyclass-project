@@ -1,6 +1,10 @@
 # Django settings for pyclass project.
+import sys
+import os
+import django
 
-import os.path
+# Get directories to make setting variables easier.
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -101,6 +105,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'pyclass.urls'
@@ -119,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.flatpages',
     'registration',  # User registration with django-registration
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
