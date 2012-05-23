@@ -1,12 +1,11 @@
 {% load i18n %}
-{% load staticfiles %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <link rel="stylesheet" href="{% static "style.css" %}" />
-    <link rel="stylesheet" href="{% static "normalize.css" %}" />
+    <link href="{{ STATIC_URL }}css/normalize.css" rel="stylesheet" />
+    <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"  />
     <title>{% block title %}NoiseList{% endblock %}</title>
 </head>
 
