@@ -20,7 +20,7 @@ class UserProfile(models.Model):
                                default=settings.STATIC_URL + "default-avatar.png")
     biography = models.TextField(default='', blank=True)
     interest = models.ManyToManyField(Interest)
-    excellence = models.IntegerField(default=0)
+    excellence = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
         return self.user.username
