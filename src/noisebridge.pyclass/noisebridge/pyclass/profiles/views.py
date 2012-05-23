@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.template import Context, RequestContext
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from pyclass.profiles.models import Interest, UserProfile
 from pyclass.profiles.forms import SearchForm, AddInterestForm
+
 
 
 def search_interests(request):
