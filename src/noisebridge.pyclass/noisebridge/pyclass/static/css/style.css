@@ -11,7 +11,6 @@ body {
 .header .logo {
     float: left;
     background: url(/static/NB-logo-red-black-small.png) no-repeat;
-    display:block;
     height: 50px;
     width: 50px;
     margin: 0;

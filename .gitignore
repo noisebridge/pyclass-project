@@ -14,5 +14,4 @@ parts
 build
 mydatabase.db
 *.log
-src/noisebridge.pyclass/noisebridge/pyclass/static
-src/noisebridge.pyclass/noisebridge/pyclass/media/avatars/**
+src/noisebridge.pyclass/noisebridge/pyclass/media/**
