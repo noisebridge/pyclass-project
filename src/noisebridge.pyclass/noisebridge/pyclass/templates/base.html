@@ -6,13 +6,14 @@
 <head>
     <link href="{{ STATIC_URL }}css/normalize.css" rel="stylesheet" />
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"  />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>{% block title %}NoiseList{% endblock %}</title>
 </head>
 
 <body>
     <header class="header cf">
         {% block header %}
-            <h1 class="logo">Noisebridge</h1>
+            <a href="/" title="Noisebridge" class="logo">Noisebridge</a>
             <h1 class="site_title">Noiselist</h1>
             <div class="login">
             	{# <a href="{% url index %}">{% trans "Home" %}</a> | #}
