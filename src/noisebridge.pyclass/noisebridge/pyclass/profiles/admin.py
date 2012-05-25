@@ -27,7 +27,7 @@ class InterestAdmin(admin.ModelAdmin):
 class UserProfileAdmin(admin.ModelAdmin):
     """Defines customizations for the admin site"""
     search_fields = ("user",)
-    filter_horizontal = ("interest",)
+    filter_horizontal = ("interests",)
 
 
 admin.site.register(UserProfile, UserProfileAdmin)

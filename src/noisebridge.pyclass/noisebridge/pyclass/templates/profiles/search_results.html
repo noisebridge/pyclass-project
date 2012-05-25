@@ -29,7 +29,7 @@
 				{% for user in users %}
 					<p> User <strong>{{ user }}</strong> has the following interests:</p>
 					<ul>
-					{% for interest in user.userprofile.interest.all %}
+					{% for interest in user.userprofile.interests.all %}
 						<li>{{ interest }}</li>
 					{% endfor %}
 					</ul>

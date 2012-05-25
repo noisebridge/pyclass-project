@@ -19,7 +19,7 @@ class UserProfile(models.Model):
     avatar = models.ImageField(upload_to="avatars",
                                default=settings.STATIC_URL + "default-avatar.png")
     biography = models.TextField(default='', blank=True)
-    interest = models.ManyToManyField(Interest)
+    interests = models.ManyToManyField(Interest)
     excellence = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
