@@ -22,12 +22,17 @@ class ToDoItem(models.Model):
         (1, "Low"),
         (0, "None")
     )
+    STATUS_CHOICES = (
+        ("O", "Open"),
+        ("IP", "In Progress"),
+        ("C", "Completed")
+    )
     name = models.CharField(max_length=150)
     details = models.TextField(default="", blank=True)
     excellence = models.PositiveIntegerField(default=0)
     importance = models.IntegerField(max_length=1, choices=IMPORTANCE_CHOICES, default="0")
     due = models.DateField(blank=True, null=True)
-    completed = models.BooleanField(default=False)
+    status = models.CharField(max_length=2, choices=STATUS_CHOICES, default="O")
     completed_by = models.ForeignKey(User, blank=True, null=True, related_name='todos_completed')
     completion_date = models.DateTimeField(blank=True, null=True, editable=False)
     interests = models.ManyToManyField(Interest, blank=True)
@@ -39,7 +44,7 @@ class ToDoItem(models.Model):
 
     def complete(self, user):
         """Marks the item as completed and assigns it's excellence to the user"""
-        self.completed = True
+        self.status = "C"
         self.completed_by = user
         self.completion_date = datetime.now()
         self.save()

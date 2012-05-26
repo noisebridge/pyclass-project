@@ -11,12 +11,12 @@ class ToDoItemAdmin(admin.ModelAdmin):
     """Defines customizations for the admin site"""
     search_fields = ("name", "creator__username")
     filter_horizontal = ("interests", "tags", "users_claimed", "sub_tasks")
-    list_display = ("name", "due", "completed", "importance", "excellence", "creator", "creation_date")
-    list_filter = ("due", "completed", "importance", "creation_date")
+    list_display = ("name", "due", "status", "importance", "excellence", "creator", "creation_date")
+    list_filter = ("due", "status", "importance", "creation_date")
     date_hierarchy = "creation_date"
     fieldsets = (
         (None, {
-            "fields": (("name", "completed"), ("creator", "completed_by"), "details", "excellence", ("importance", "due"), "sub_tasks")
+            "fields": (("name", "status"), ("creator", "completed_by"), "details", "excellence", ("importance", "due"), "sub_tasks")
         }),
         ("Meta-data", {
             "classes": ("collapse",),
