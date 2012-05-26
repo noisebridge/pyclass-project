@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+{% load comments %}
 
 {% block content %}
     <h1>{{ todoitem.name }}</h1>
     <p>{{ todoitem.details }}</p>
+    {% get_comment_count for todoitem as comment_count %}
+    <hr>
+    <p>This item has {{ comment_count }} comment{{ comment_count|pluralize }}.</p>
+    {% render_comment_list for todoitem %}
+    <hr>
+    <p>Add a comment</p>
+    {% render_comment_form for todoitem %}
 {% endblock content %}

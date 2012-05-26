@@ -52,37 +52,3 @@ class ToDoItem(models.Model):
     class Meta:
         get_latest_by = "creation_date"
         ordering = ["-creation_date"]
-
-
-class Update(models.Model):
-    """Progress updates to the ToDo item by users working on it"""
-    title = models.CharField(max_length=300)
-    body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User)
-    todoitem = models.ForeignKey(ToDoItem, verbose_name=u'update about')
-
-    def __unicode__(self):
-            return self.title
-
-    class Meta:
-        get_latest_by = "date"
-        order_with_respect_to = "todoitem"
-        ordering = ["-date"]
-
-
-class Comment(models.Model):
-    """Comments on the ToDo item by all users"""
-    title = models.CharField(max_length=300)
-    body = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User)
-    todoitem = models.ForeignKey(ToDoItem, verbose_name=u'comment on')
-
-    def __unicode__(self):
-            return self.title
-
-    class Meta:
-        get_latest_by = "date"
-        order_with_respect_to = "todoitem"
-        ordering = ["-date"]
