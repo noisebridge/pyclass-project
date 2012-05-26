@@ -124,13 +124,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
-    'registration',  # User registration with django-registration
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+    'registration',
+    'south',
     'pyclass.profiles',
-    'south'
+    'pyclass.todo'
 )
 
 # Number of days allowed a user to respond to activation e-mail
