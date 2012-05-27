@@ -54,6 +54,15 @@ class ToDoItem(models.Model):
             return True
         return False
 
+    def claim(self, user):
+        """Allows a user to claim the item"""
+        if self.status != "C":
+            self.status = "IP"
+            self.users_claimed.add(user)
+            self.save()
+            return True
+        return False
+
     def __unicode__(self):
             return self.name
 
