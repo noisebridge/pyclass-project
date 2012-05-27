@@ -44,12 +44,15 @@ class ToDoItem(models.Model):
 
     def complete(self, user):
         """Marks the item as completed and assigns it's excellence to the user"""
-        self.status = "C"
-        self.completed_by = user
-        self.completion_date = datetime.now()
-        self.save()
-        user.userprofile.excellence += self.excellence
-        user.userprofile.save()
+        if self.status != "C":
+            self.status = "C"
+            self.completed_by = user
+            self.completion_date = datetime.now()
+            self.save()
+            user.userprofile.excellence += self.excellence
+            user.userprofile.save()
+            return True
+        return False
 
     def __unicode__(self):
             return self.name
