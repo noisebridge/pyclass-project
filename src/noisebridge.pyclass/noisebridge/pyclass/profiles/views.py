@@ -65,3 +65,7 @@ def interest_submitted(request):
 def display_avatar(request):
     profile = UserProfile.objects.get(user=request.user)
     return render(request, "profiles/display_avatar.html", {"profile": profile})
+
+
+def display_profile(request, user_name):
+    return render(request, "profiles/user_profile.html", {"user_name": user_name})

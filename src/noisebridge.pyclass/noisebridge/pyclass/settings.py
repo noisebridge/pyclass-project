@@ -143,7 +143,7 @@ AUTH_PROFILE_MODULE = "profiles.UserProfile"
 
 # Overrides get_absolute_url()
 ABSOLUTE_URL_OVERRIDES = {
-    'auth.user': lambda o: "/accounts/profile/%s" % o.username,
+    'auth.user': lambda o: "/profile/%s" % o.username,
 }
 
 LOGIN_REDIRECT_URL = "/"
