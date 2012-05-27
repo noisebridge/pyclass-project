@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ interest.name }}
+{% endblock title %}
+
+{% block content %}
+<h1>{{ interest.name }}</h1>
+    <ul>
+        {% for profile in interest.userprofile_set.all %}
+            <li><a href="{{ profile.user.get_absolute_url }}">{{ profile.user.username }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
