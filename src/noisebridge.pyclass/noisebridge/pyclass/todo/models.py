@@ -66,6 +66,10 @@ class ToDoItem(models.Model):
     def __unicode__(self):
             return self.name
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('todoitem_details', [str(self.id)])
+
     class Meta:
         get_latest_by = "creation_date"
         ordering = ["-creation_date"]
