@@ -54,19 +54,6 @@ def add_interests(request):
     return render(request, "profiles/addinterest.html", {"form": form})
 
 
-def interest_submitted(request):
-    interest = None
-    if request.GET["interest_added"]:
-        interest = Interest.objects.get(name=request.GET["interest_added"])
-    return render(request, "profiles/interest_submitted.html", {"interest": interest})
-
-
-@login_required
-def display_avatar(request):
-    profile = UserProfile.objects.get(user=request.user)
-    return render(request, "profiles/display_avatar.html", {"profile": profile})
-
-
 def display_profile(request, user_name):
     user = None
     profile = None
