@@ -12,10 +12,10 @@
 				{% for interest in interests %}
 					<p>Found {{ interest.userprofile_set.all|length }}
 						user{{ interest.userprofile_set.all|pluralize }} with an interest in
-						<strong>{{ interest }}</strong></p>
+						<strong><a href="{{ interest.get_absolute_url }}">{{ interest.name }}</a></strong></p>
 					<ul>
-					{% for user in interest.userprofile_set.all %}
-						<li>{{ user }}</li>
+					{% for profile in interest.userprofile_set.all %}
+			            <li><a href="{{ profile.user.get_absolute_url }}">{{ profile.user.username }}</a></li>
 					{% endfor %}
 					</ul>
 				{% endfor %}
@@ -27,10 +27,11 @@
 		{% if users %}
 			<p>Found {{ users|length }} user{{ users|pluralize  }} matching your query</p>
 				{% for user in users %}
-					<p> User <strong>{{ user }}</strong> has the following interests:</p>
+					<p> User <strong><a href="{{ user.get_absolute_url }}">{{ user }}</a>
+						</strong> has the following interests:</p>
 					<ul>
 					{% for interest in user.userprofile.interests.all %}
-						<li>{{ interest }}</li>
+						<li><a href="{{ interest.get_absolute_url }}">{{ interest.name }}</a></li>
 					{% endfor %}
 					</ul>
 				{% endfor %}

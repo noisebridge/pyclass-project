@@ -24,7 +24,7 @@
         <h2>Interests</h2>
         <ul>
             {% for interest in user.userprofile.interests.all %}
-                <li>{{ interest }}</li>
+                <li><a href="{{ interest.get_absolute_url }}">{{ interest.name }}</a></li>
             {% endfor %}
         </ul>
         <h2>Tasks</h2>
@@ -33,19 +33,19 @@
         <h3>Tasks Claimed</h3>
         <ul>
             {% for todo in user.todos_claimed.all %}
-                <li><a href="{{ todo.get_absolute_url }}">{{ todo }}</a></li>
+                <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
             {% endfor %}
         </ul>
         <h3>Tasks Created</h3>
         <ul>
             {% for todo in user.todos_created.all %}
-                <li><a href="{{ todo.get_absolute_url }}">{{ todo }}</a></li>
+                <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
             {% endfor %}
         </ul>
         <h3>Tasks Completed</h3>
         <ul>
             {% for todo in user.todos_completed.all %}
-                <li><a href="{{ todo.get_absolute_url }}">{{ todo }}</a></li>
+                <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
