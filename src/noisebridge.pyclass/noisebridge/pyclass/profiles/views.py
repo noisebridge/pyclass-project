@@ -48,7 +48,7 @@ def add_interests(request):
             profile = UserProfile.objects.get(user=request.user)
             profile.interests.add(interest)
             profile.save()
-            return HttpResponseRedirect("interest_submitted/?interest_added=" + i)
+            return HttpResponseRedirect(interest.get_absolute_url())
     else:
         form = AddInterestForm()
     return render(request, "profiles/addinterest.html", {"form": form})
@@ -56,8 +56,8 @@ def add_interests(request):
 
 def interest_submitted(request):
     interest = None
-    if "interest_added" in request.GET and request.GET["interest_added"]:
-        interest = request.GET["interest_added"]
+    if request.GET["interest_added"]:
+        interest = Interest.objects.get(name=request.GET["interest_added"])
     return render(request, "profiles/interest_submitted.html", {"interest": interest})
 
 

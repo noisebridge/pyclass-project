@@ -10,7 +10,6 @@ urlpatterns = patterns('pyclass.profiles.views',
         name="interest_details"
     ),
     url(r'^add/interest/$', 'add_interests'),
-    url(r'^add/interest/interest_submitted/$', 'interest_submitted'),
     url(r'^display_avatar/$', 'display_avatar'),
     url(r'^search/interests/$', 'search_interests'),
 )
