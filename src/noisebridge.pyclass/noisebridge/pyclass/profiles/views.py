@@ -68,4 +68,10 @@ def display_avatar(request):
 
 
 def display_profile(request, user_name):
-    return render(request, "profiles/user_profile.html", {"user_name": user_name})
+    user = None
+    profile = None
+    if User.objects.filter(username=user_name):
+        user = User.objects.get(username=user_name)
+        profile = UserProfile.objects.get(user=user)
+    return render(request, "profiles/user_profile.html", {"user_name": user_name,
+                                                         "user": user, "profile": profile})

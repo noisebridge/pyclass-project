@@ -1,7 +1,52 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block title %}
+    {% if not user %}
+        No Such User
+    {% else %}
+        {{ user.username }}
+    {% endif %}
+{% endblock title %}
+
 {% block content %}
-Profile Page
-Hello {{ user_name }}
-{% endblock %}
+    {% if not user %}
+        <p>User "<strong>{{ user_name }}</strong>" does not exist.</p>
+    {% else %}
+        <h1>{{ user.username }}</h1>
+        <p><img src="{{ profile.avatar.url }}" alt="Avatar"></p>
+        <p>E-mail: {{ user.email }}</p>
+        <p>Excellence: {{ profile.excellence }}</p>
+        {% if profile.bio %}
+            <h2>Bio</h2>
+            <p>{{ profile.bio }}</p>
+        {% endif %}
+        <h2>Interests</h2>
+        <ul>
+            {% for interest in user.userprofile.interests.all %}
+                <li>{{ interest }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Tasks</h2>
+        <hr>
+        {# TODO: rewrite to scale to large numbers of items #}
+        <h3>Tasks Claimed</h3>
+        <ul>
+            {% for todo in user.todos_claimed.all %}
+                <li><a href="{{ todo.get_absolute_url }}">{{ todo }}</a></li>
+            {% endfor %}
+        </ul>
+        <h3>Tasks Created</h3>
+        <ul>
+            {% for todo in user.todos_created.all %}
+                <li><a href="{{ todo.get_absolute_url }}">{{ todo }}</a></li>
+            {% endfor %}
+        </ul>
+        <h3>Tasks Completed</h3>
+        <ul>
+            {% for todo in user.todos_completed.all %}
+                <li><a href="{{ todo.get_absolute_url }}">{{ todo }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock content %}
