@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+    Reset Avatar
+{% endblock title %}
+
+{% block content %}
+    <p>Are you sure you want to reset your avatar to the default?</p>
+    <form action="." method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, I'm sure">
+    </form>
+{% endblock content %}

@@ -19,12 +19,17 @@ class Interest(models.Model):
 
 
 class UserProfile(models.Model):
+    DEFAULT_AVATAR = settings.STATIC_URL + "default-avatar.png"
     user = models.OneToOneField(User)
     avatar = models.ImageField(upload_to="avatars",
-                               default=settings.STATIC_URL + "default-avatar.png")
+                               default=DEFAULT_AVATAR)
     biography = models.TextField(default='', blank=True)
     interests = models.ManyToManyField(Interest)
     excellence = models.PositiveIntegerField(default=0)
+
+    def reset_avatar(self):
+        self.avatar = self.DEFAULT_AVATAR
+        self.save()
 
     def __unicode__(self):
         return self.user.username

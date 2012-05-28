@@ -45,7 +45,7 @@ def add_interests(request):
                 interest.save()
             else:
                 interest = Interest.objects.get(name=i)
-            profile = UserProfile.objects.get(user=request.user)
+            profile = request.user.userprofile
             profile.interests.add(interest)
             profile.save()
             return HttpResponseRedirect(interest.get_absolute_url())
@@ -59,7 +59,7 @@ def display_profile(request, user_name):
     profile = None
     if User.objects.filter(username=user_name):
         requested_user = User.objects.get(username=user_name)
-        profile = UserProfile.objects.get(user=requested_user)
+        profile = requested_user.userprofile
     return render(request, "profiles/user_profile.html", {"user_name": user_name,
                                                          "requested_user": requested_user,
                                                          "profile": profile})
@@ -67,8 +67,8 @@ def display_profile(request, user_name):
 
 @login_required
 def update_settings(request):
-    user = User.objects.get(username=request.user)
-    profile = UserProfile.objects.get(user=user)
+    user = request.user
+    profile = user.userprofile
     if request.method == "POST":
         user_form = UserSettingsForm(request.POST, instance=user)
         profile_form = UserProfileSettingsForm(request.POST, request.FILES, instance=profile)
@@ -87,3 +87,12 @@ def update_settings(request):
             "biography": profile.biography,
         })
     return render(request, "profiles/user_settings.html", {"user_form": user_form, "profile_form": profile_form})
+
+
+@login_required
+def reset_avatar(request):
+    if request.method == "POST":
+        user = request.user
+        user.userprofile.reset_avatar()
+        return HttpResponseRedirect(user.get_absolute_url())
+    return render(request, "profiles/reset_avatar.html")
