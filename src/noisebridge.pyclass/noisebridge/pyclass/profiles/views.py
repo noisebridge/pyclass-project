@@ -72,6 +72,7 @@ def update_settings(request):
         user_form = UserSettingsForm(request.POST, instance=user)
         profile_form = UserProfileSettingsForm(request.POST, request.FILES, instance=profile)
         if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
             profile_form.save()
             return HttpResponseRedirect(user.get_absolute_url())
     else:
