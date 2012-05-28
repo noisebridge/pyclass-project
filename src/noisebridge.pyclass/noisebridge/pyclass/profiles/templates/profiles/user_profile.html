@@ -2,24 +2,24 @@
 {% load i18n %}
 
 {% block title %}
-    {% if not user %}
+    {% if not requested_user %}
         No Such User
     {% else %}
-        {{ user.username }}
+        {{ requested_user.username }}
     {% endif %}
 {% endblock title %}
 
 {% block content %}
-    {% if not user %}
+    {% if not requested_user %}
         <p>User "<strong>{{ user_name }}</strong>" does not exist.</p>
     {% else %}
-        <h1>{{ user.username }}
-            {% if user.get_full_name %}
-                ({{ user.get_full_name }})
+        <h1>{{ requested_user.username }}
+            {% if requested_user.get_full_name %}
+                ({{ requested_user.get_full_name }})
             {% endif %}
         </h1>
         <p><img src="{{ profile.avatar.url }}" alt="Avatar"></p>
-        <p>E-mail: <a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+        <p>E-mail: <a href="mailto:{{ requested_user.email }}">{{ requested_user.email }}</a></p>
         <p>Excellence: {{ profile.excellence }}</p>
         {% if profile.biography %}
             <h2>Bio</h2>
@@ -27,7 +27,7 @@
         {% endif %}
         <h2>Interests</h2>
         <ul>
-            {% for interest in user.userprofile.interests.all %}
+            {% for interest in requested_user.userprofile.interests.all %}
                 <li><a href="{{ interest.get_absolute_url }}">{{ interest.name }}</a></li>
             {% endfor %}
         </ul>
@@ -36,19 +36,19 @@
         {# TODO: rewrite to scale to large numbers of items #}
         <h3>Tasks Claimed</h3>
         <ul>
-            {% for todo in user.todos_claimed.all %}
+            {% for todo in requested_user.todos_claimed.all %}
                 <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
             {% endfor %}
         </ul>
         <h3>Tasks Created</h3>
         <ul>
-            {% for todo in user.todos_created.all %}
+            {% for todo in requested_user.todos_created.all %}
                 <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
             {% endfor %}
         </ul>
         <h3>Tasks Completed</h3>
         <ul>
-            {% for todo in user.todos_completed.all %}
+            {% for todo in requested_user.todos_completed.all %}
                 <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
             {% endfor %}
         </ul>
