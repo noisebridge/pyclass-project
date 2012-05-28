@@ -13,9 +13,13 @@
     {% if not user %}
         <p>User "<strong>{{ user_name }}</strong>" does not exist.</p>
     {% else %}
-        <h1>{{ user.username }}</h1>
+        <h1>{{ user.username }}
+            {% if user.get_full_name %}
+                ({{ user.get_full_name }})
+            {% endif %}
+        </h1>
         <p><img src="{{ profile.avatar.url }}" alt="Avatar"></p>
-        <p>E-mail: {{ user.email }}</p>
+        <p>E-mail: <a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
         <p>Excellence: {{ profile.excellence }}</p>
         {% if profile.bio %}
             <h2>Bio</h2>
