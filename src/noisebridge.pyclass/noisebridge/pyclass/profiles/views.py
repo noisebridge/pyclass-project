@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from pyclass.profiles.models import Interest, UserProfile
-from pyclass.profiles.forms import SearchForm, AddInterestForm
+from pyclass.profiles.forms import SearchForm, AddInterestForm, UserSettingsForm, UserProfileSettingsForm
 
 
 def search_interests(request):
@@ -62,3 +62,26 @@ def display_profile(request, user_name):
         profile = UserProfile.objects.get(user=user)
     return render(request, "profiles/user_profile.html", {"user_name": user_name,
                                                          "user": user, "profile": profile})
+
+
+@login_required
+def update_settings(request):
+    user = User.objects.get(username=request.user)
+    profile = UserProfile.objects.get(user=user)
+    if request.method == "POST":
+        user_form = UserSettingsForm(request.POST, instance=user)
+        profile_form = UserProfileSettingsForm(request.POST, request.FILES, instance=profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            profile_form.save()
+            return HttpResponseRedirect(user.get_absolute_url())
+    else:
+        user_form = UserSettingsForm(initial={
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+        })
+        profile_form = UserProfileSettingsForm(initial={
+            "avatar": profile.avatar,
+            "biography": profile.biography,
+        })
+    return render(request, "profiles/user_settings.html", {"user_form": user_form, "profile_form": profile_form})

@@ -37,6 +37,19 @@ body {
     color: #c3c3c3;
 }
 
+.login_item {
+    float: left;
+    border-left: 1px solid #2a2a2a;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.login_item:first-child{
+    border-left: medium none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
 .nav {
     margin: 0;
     background-color: #2a2a2a;

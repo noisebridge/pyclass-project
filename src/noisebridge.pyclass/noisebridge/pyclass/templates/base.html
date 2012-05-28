@@ -19,11 +19,12 @@
             	{# <a href="{% url index %}">{% trans "Home" %}</a> | #}
 
                 {% if user.is_authenticated %}
-                    {% trans "Logged in" %}: <a href="/profile/{{ user.username }}">{{ user.username }}</a>
-                    (<a href="{% url auth_logout %}">{% trans "Log out" %}</a> |
-                    <a href="{% url auth_password_change %}">{% trans "Change password" %}</a>)
+                    <a class="login_item" href="{{ user.get_absolute_url }}">{{ user.username }}</a>
+                    <a class="login_item" href="{% url user_settings %}">{% trans "Settings" %}</a>
+                    <a class="login_item" href="{% url auth_logout %}">{% trans "Log out" %}</a>
                 {% else %}
-                    <a href="{% url auth_login %}">{% trans "Log in" %}</a>
+                    <a class="login_item" href="{% url auth_login %}">{% trans "Log in" %}</a>
+                    <a class="login_item" href="{% url registration_register %}">{% trans "Register" %}</a>
                 {% endif %}
             </div>
         {% endblock header %}
@@ -32,8 +33,8 @@
     <nav class="nav cf">
         <ul>
             <li><a href="/">{% trans "Home" %}</a></li>
-            <li><a href="/profile/search/interests/">{% trans "Search" %}</a></li>
-            <li><a href="/profile/add/interest/">{% trans "Add Interest" %}</a></li>
+            <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
+            <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
         </ul>
     </nav>
 

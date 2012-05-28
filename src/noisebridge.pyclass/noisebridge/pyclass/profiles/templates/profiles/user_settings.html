@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ user.username }} - Settings
+{% endblock title %}
+
+{% block content %}
+    <h1>User Settings</h1>
+    {% if user_form.errors %}
+        <p class="error_notification">Please correct the error{{ user_form.errors|pluralize }} below. </p>
+    {% elif profile_form.errors %}
+        <p class="error_notification">Please correct the error{{ profile_form.errors|pluralize }} below. </p>
+    {% endif %}
+    <a href="{% url auth_password_change %}">Change password</a>
+    <form enctype="multipart/form-data" action="." method="post">
+        {% csrf_token %}
+        <table>
+            {{ user_form.as_table }}
+            {{ profile_form.as_table }}
+        </table>
+        <input type="submit" value="Update Settings">
+    </form>
+{% endblock content %}
