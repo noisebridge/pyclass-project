@@ -21,8 +21,10 @@ body {
 
 .site_title {
     float: left;
-    padding: 0px 20px;
-    font-size: 24px;
+    padding: 10px 20px 0px 20px;
+    font-size: 25px;
+    display: block;
+    font-weight: bold;
 }
 
 .login {
