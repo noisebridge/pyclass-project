@@ -27,7 +27,7 @@
         {% endif %}
         <h2>Interests</h2>
         <ul>
-            {% for interest in requested_user.userprofile.interests.all %}
+            {% for interest in profile.interests.all %}
                 <li><a href="{{ interest.get_absolute_url }}">{{ interest.name }}</a></li>
             {% endfor %}
         </ul>
