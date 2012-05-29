@@ -10,7 +10,7 @@ def search_interests(request):
     """
     Returns a list with all interests that contain (case insensitive) the string "query".
     """
-    if "query" in request.GET:
+    if "query" and "query_type" in request.GET:
         form = SearchForm(request.GET)
         if form.is_valid():
             cd = form.cleaned_data
