@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from pyclass.profiles.models import Interest, UserProfile
+from pyclass.profiles.models import Interest
 from pyclass.profiles.forms import SearchForm, AddInterestForm, UserSettingsForm, UserProfileSettingsForm
 
 
@@ -48,7 +47,7 @@ def add_interests(request):
             profile = request.user.userprofile
             profile.interests.add(interest)
             profile.save()
-            return HttpResponseRedirect(interest.get_absolute_url())
+            return redirect(interest)
     else:
         form = AddInterestForm()
     return render(request, "profiles/addinterest.html", {"form": form})
@@ -75,7 +74,7 @@ def update_settings(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return HttpResponseRedirect(user.get_absolute_url())
+            return redirect(user)
     else:
         user_form = UserSettingsForm(initial={
             "first_name": user.first_name,
@@ -94,5 +93,5 @@ def reset_avatar(request):
     if request.method == "POST":
         user = request.user
         user.userprofile.reset_avatar()
-        return HttpResponseRedirect(user.get_absolute_url())
+        return redirect(user)
     return render(request, "profiles/reset_avatar.html")
