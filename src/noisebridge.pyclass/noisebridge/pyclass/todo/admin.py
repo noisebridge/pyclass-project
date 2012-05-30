@@ -16,7 +16,8 @@ class ToDoItemAdmin(admin.ModelAdmin):
     date_hierarchy = "creation_date"
     fieldsets = (
         (None, {
-            "fields": (("name", "status"), ("creator", "completed_by"), "details", "excellence", ("importance", "due"), "sub_tasks")
+            "fields": (("name", "status"), ("creator", "completed_by"), "details", "excellence",
+                      ("importance", "due"))
         }),
         ("Meta-data", {
             "classes": ("collapse",),
