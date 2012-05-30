@@ -16,8 +16,7 @@ class ToDoItemAdmin(admin.ModelAdmin):
     date_hierarchy = "creation_date"
     fieldsets = (
         (None, {
-            "fields": (("name", "status"), ("creator", "completed_by"), "details", "excellence",
-                      ("importance", "due"))
+            "fields": (("name", "status"), "completed_by", "details", "excellence", ("importance", "due"))
         }),
         ("Meta-data", {
             "classes": ("collapse",),
@@ -28,6 +27,11 @@ class ToDoItemAdmin(admin.ModelAdmin):
             "fields": ("users_claimed",)
         })
     )
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.creator = request.user
+            obj.save()
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(ToDoItem, ToDoItemAdmin)
