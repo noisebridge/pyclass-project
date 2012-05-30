@@ -58,13 +58,26 @@ body {
     padding-left: 0px;
 }
 
-.nav {
+.nav, .nav li ul {
     background-color: #2a2a2a;
 }
 
 
 .nav li {
     float: left;
+}
+
+.nav li li {
+    float: none;
+}
+
+.nav li:hover ul {
+    display: block;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
 }
 
 .nav a {

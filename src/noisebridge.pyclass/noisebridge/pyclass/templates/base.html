@@ -34,6 +34,13 @@
         <ul>
             <li><a href="/">{% trans "Home" %}</a></li>
             <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
+            <li><a href="#">{% trans "ToDo" %}</a>
+                <ul>
+                    <li><a href="{% url todo_list %}">{% trans "List All Tasks" %}</a></li>
+                    <li><a href="#">{% trans "Add Task" %}</a></li>
+                    <li><a href="#">{% trans "What Can I Do?" %}</a></li>
+                </ul>
+            </li>
             <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
         </ul>
     </nav>
