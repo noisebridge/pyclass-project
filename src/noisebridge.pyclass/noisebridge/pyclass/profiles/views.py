@@ -98,4 +98,7 @@ def reset_avatar(request):
         user.userprofile.reset_avatar()
         messages.success(request, "Avatar reset.")
         return redirect(user)
-    return render(request, "profiles/reset_avatar.html")
+    return render(request, "confirm_action.html",
+                 {"title": "Reset Avatar",
+                 "message": "Are you sure you want to reset your avatar to the default?"
+    })
