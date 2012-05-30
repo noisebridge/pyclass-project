@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    ToDo List- Page {{ page }}
+{% endblock title %}
+
+{% block content %}
+    <ul>
+        {% for todo in todoitem_list %}
+            <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="step_links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                {% for page in paginator.page_range %}
+                    {% if page == page_obj.number %}
+                        {{ page }}
+                    {% else %}
+                        <a href="?page={{ page }}" class="page_link">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a href="?page=last">last</a>
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% endblock content %}
