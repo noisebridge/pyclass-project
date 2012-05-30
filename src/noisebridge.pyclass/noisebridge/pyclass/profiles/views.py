@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from pyclass.profiles.models import Interest
@@ -47,6 +48,7 @@ def add_interests(request):
             profile = request.user.userprofile
             profile.interests.add(interest)
             profile.save()
+            messages.success(request, "Interest added.")
             return redirect(interest)
     else:
         form = AddInterestForm()
@@ -74,6 +76,7 @@ def update_settings(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, "Profile details updated.")
             return redirect(user)
     else:
         user_form = UserSettingsForm(initial={
@@ -93,5 +96,6 @@ def reset_avatar(request):
     if request.method == "POST":
         user = request.user
         user.userprofile.reset_avatar()
+        messages.success(request, "Avatar reset.")
         return redirect(user)
     return render(request, "profiles/reset_avatar.html")

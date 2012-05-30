@@ -1,10 +1,18 @@
+.header, .messages, .nav {
+    margin: 0px;
+}
+
+.nav ul, .messages, ul.errorlist {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     background-color: #ededed;
 }
 
 .header {
     background-color: #555555;
-    margin: 0;
     padding: 10px;
 }
 
@@ -13,7 +21,7 @@ body {
     background: url(/static/NB-logo-red-black-small.png) no-repeat;
     height: 50px;
     width: 50px;
-    margin: 0;
+    margin: 0px;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -44,21 +52,16 @@ body {
     padding-left: 5px;
 }
 
-.login_item:first-child{
+.login_item:first-child {
     border-left: medium none;
     margin-left: 0px;
     padding-left: 0px;
 }
 
 .nav {
-    margin: 0;
     background-color: #2a2a2a;
 }
 
-.nav ul {
-    margin: 0;
-    padding: 0;
-}
 
 .nav li {
     float: left;
@@ -73,8 +76,41 @@ body {
     background-color: #3f3f3f;
 }
 
+.container {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.messages .container{
+    text-align: center;
+}
+
+.messages {
+    position: absolute;
+    list-style: none;
+    width: 50%;
+}
+
+.messages li {
+    background-color: #FCF9CE;
+    border: 1px solid #CBC787;
+    opacity: 0.8; /* Chrome 4+, FF2+, Saf3.1+, Opera 9+, IE9, iOS 3.2+, Android 2.1+ */
+        filter: alpha(opacity=80); /* IE6-IE8 */
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
+    /*keeps background color from bleeding through the corners*/
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+    margin: 4px 0px;
+    padding: 6px 10px;
+    font-size: 80%;
+    font-weight: bold;
+    display: inline-block;
+}
+
 .content {
-    padding: 50px 0px 10px 10px;
+    padding: 10px 0px 10px 10px;
     background-color: #a5a5a5;
 }
 
@@ -90,11 +126,6 @@ body {
 
 .error_notification {
     color: red;
-}
-
-ul.errorlist {
-    margin: 0;
-    padding: 0;
 }
 
 .errorlist li {

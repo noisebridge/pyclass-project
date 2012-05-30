@@ -39,6 +39,17 @@
     </nav>
 
     <section class="content cf">
+        {% if messages %}
+            <div class="container">
+                <ul class="messages">
+                    {% for message in messages %}
+                    <div class="container">
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
         {% block content %}{% endblock content %}
     </section>
 
