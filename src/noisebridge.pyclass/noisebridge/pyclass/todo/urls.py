@@ -4,9 +4,5 @@ from pyclass.todo.models import ToDoItem
 
 urlpatterns = patterns('pyclass.todo.views',
     #url(r'^$', 'pyclass.views.index'),
-    url(r'^details/(?P<pk>\d+)/$',
-        DetailView.as_view(model=ToDoItem, context_object_name="todoitem",),
-        name="todoitem_details"
-    ),
-
+    url(r'^details/(?P<pk>\d+)/$', DetailView.as_view(model=ToDoItem), name="todoitem_details"),
 )
