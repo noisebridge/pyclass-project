@@ -12,28 +12,31 @@
 		<p>Completed by: {{ todoitem.completed_by }}</p>
 		<p>Completed on: {{ todoitem.completion_date }}</p>
     {% endif %}
-    
+
+    Interests
 	<ul>
 	{% for interest in todoitem.interests.all %}
 		<li><a href={{ "interest.get_absolute_url" }}>{{ interest.name }}</a></li>
 	{% endfor %}
-	</ul>	   
-	
+	</ul>
+
+    Tags
 	<ul>
 	{% for tag in todoitem.tags.all %}
 		<li><a href={{ "tag.get_absolute_url" }}>{{ tag.name }}</a></li>
 	{% endfor %}
 	</ul>
-	
+
+    Claims
 	<ul>
 	{% for user in todoitem.users_claimed.all %}
-		<li><a href={{ "user.get_absolute_url" }}>{{ user.username }}</a></li>	    
+		<li><a href={{ "user.get_absolute_url" }}>{{ user.username }}</a></li>
 	{% endfor %}
 	</ul>
-	
+
 	<p>Creator: {{ todoitem.creator }}</p>
 	<p>Created on: {{ todoitem.creation_date }}</p>
-	
+
     {% get_comment_count for todoitem as comment_count %}
     <hr>
     <p>This item has {{ comment_count }} comment{{ comment_count|pluralize }}.</p>
