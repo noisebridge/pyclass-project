@@ -49,3 +49,7 @@ def complete_todo(request, pk):
                  {"title": "Complete ToDo",
                  "message": "Are you sure you want to complete '" + todo.name + "'' ?"
     })
+
+def whatcanido(request):
+    cando_list = ToDoItem.objects.all()
+    return render(request, "todo/todoitem_whatcanido.html", {"todoitem_list":cando_list})

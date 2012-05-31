@@ -10,4 +10,5 @@ urlpatterns = patterns('pyclass.todo.views',
     url(r'^add/$', AddToDo.as_view(), name="add_todo"),
     url(r'^claim/(?P<pk>\d+)/$', "claim_todo", name="claim_todo"),
     url(r'^complete/(?P<pk>\d+)/$', "complete_todo", name="complete_todo"),
+    url(r'^whatcanido/$', "whatcanido", name="whatcanido"),
 )
