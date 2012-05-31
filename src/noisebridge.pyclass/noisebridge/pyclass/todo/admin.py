@@ -30,8 +30,7 @@ class ToDoItemAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if not change:
-            obj.creator = request.user
-            obj.save()
+            obj.save(request.user)
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(ToDoItem, ToDoItemAdmin)
