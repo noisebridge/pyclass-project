@@ -1,6 +1,8 @@
 from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from pyclass.profiles.models import Interest
 
 
@@ -43,7 +45,8 @@ class ToDoItem(models.Model):
     creator = models.ForeignKey(User, related_name='todos_created')
     creation_date = models.DateTimeField(auto_now_add=True)
 
-    def complete(self, user):
+    @method_decorator(login_required)
+    def complete(self, request, user):
         """Marks the item as completed and assigns it's excellence to the user"""
         if self.status != "C":
             self.status = "C"
@@ -55,7 +58,8 @@ class ToDoItem(models.Model):
             return True
         return False
 
-    def claim(self, user):
+    @method_decorator(login_required)
+    def claim(self, request, user):
         """Allows a user to claim the item"""
         if self.status != "C":
             self.status = "IP"

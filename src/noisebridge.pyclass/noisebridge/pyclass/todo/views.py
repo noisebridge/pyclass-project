@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -22,3 +22,30 @@ class AddToDo(CreateView):
     def dispatch(self, *args, **kwargs):
         return super(AddToDo, self).dispatch(*args, **kwargs)
 
+
+@login_required
+def claim_todo(request, pk):
+    todo = ToDoItem.objects.get(id=pk)
+    if request.method == "POST":
+        user = request.user
+        todo.claim(request, user)
+        messages.success(request, "ToDo claimed")
+        return redirect(user)
+    return render(request, "confirm_action.html",
+                 {"title": "Claim ToDo",
+                 "message": "Are you sure you want to claim '" + todo.name + "'' ?"
+    })
+
+
+@login_required
+def complete_todo(request, pk):
+    todo = ToDoItem.objects.get(id=pk)
+    if request.method == "POST":
+        user = request.user
+        todo.complete(request, user)
+        messages.success(request, "ToDo completed")
+        return redirect(user)
+    return render(request, "confirm_action.html",
+                 {"title": "Complete ToDo",
+                 "message": "Are you sure you want to complete '" + todo.name + "'' ?"
+    })
