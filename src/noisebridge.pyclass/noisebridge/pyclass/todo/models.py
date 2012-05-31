@@ -74,3 +74,9 @@ class ToDoItem(models.Model):
     class Meta:
         get_latest_by = "creation_date"
         ordering = ["-creation_date"]
+
+    def save(self, user=None, *args, **kwargs):
+        # Only adds a creator when the object is first created
+        if user and not self.id:
+            self.creator = user
+        super(ToDoItem, self).save(*args, **kwargs)  # Call the "real" save() method.
