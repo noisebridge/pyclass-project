@@ -1,8 +1,10 @@
 from datetime import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+
 from pyclass.profiles.models import Interest
 
 
@@ -43,7 +45,7 @@ class ToDoItem(models.Model):
     interests = models.ManyToManyField(Interest, blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
     users_claimed = models.ManyToManyField(User, blank=True, related_name='todos_claimed')
-    #FIXME Currently broken. Do not use. Needs some sort of tree structure to be implemented correctly.
+    # FIXME Currently broken. Do not use. Needs some sort of tree structure to be implemented correctly.
     sub_tasks = models.ManyToManyField("self", blank=True, related_name='parent_task')
     creator = models.ForeignKey(User, related_name='todos_created')
     creation_date = models.DateTimeField(auto_now_add=True)

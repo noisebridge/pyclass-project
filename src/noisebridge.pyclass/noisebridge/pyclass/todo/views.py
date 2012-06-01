@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import CreateView
+
 from pyclass.todo.models import ToDoItem
 from pyclass.todo.forms import ToDoItemForm
 

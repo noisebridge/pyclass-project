@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import patterns, url
 from django.views.generic import DetailView
+
 from pyclass.profiles.models import Interest
 
 urlpatterns = patterns('pyclass.profiles.views',
