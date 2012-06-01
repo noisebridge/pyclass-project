@@ -4,12 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import CreateView
 from pyclass.todo.models import ToDoItem
-from pyclass.todo.forms import ToDoItemForm
 
 
 class AddToDo(CreateView):
     model = ToDoItem
-    form_class = ToDoItemForm
 
     def form_valid(self, form):
         todo = form.save(commit=False)
@@ -50,6 +48,7 @@ def complete_todo(request, pk):
                  "message": "Are you sure you want to complete '" + todo.name + "'' ?"
     })
 
+
 def whatcanido(request):
     cando_list = ToDoItem.objects.all()
-    return render(request, "todo/todoitem_whatcanido.html", {"todoitem_list":cando_list})
+    return render(request, "todo/todoitem_list.html", {"todoitem_list": cando_list})
