@@ -11,13 +11,14 @@ class Tag(models.Model):
     name = models.CharField(max_length=30)
 
     def __unicode__(self):
-        return self.name        
+        return self.name
 
     class Meta:
         ordering = ["name"]
 
     def get_absolute_url(self):
         return ('tags', [str(self.id)])
+
 
 class ToDoItem(models.Model):
     IMPORTANCE_CHOICES = (
@@ -47,6 +48,23 @@ class ToDoItem(models.Model):
     creator = models.ForeignKey(User, related_name='todos_created')
     creation_date = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+            return self.name
+
+    class Meta:
+        get_latest_by = "creation_date"
+        ordering = ["-creation_date"]
+
+    def save(self, user=None, *args, **kwargs):
+        # Only adds a creator when the object is first created
+        if user and not self.id:
+            self.creator = user
+        super(ToDoItem, self).save(*args, **kwargs)  # Call the "real" save() method.
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('todoitem_details', [str(self.id)])
+
     @method_decorator(login_required)
     def complete(self, request, user):
         """Marks the item as completed and assigns it's excellence to the user"""
@@ -70,19 +88,3 @@ class ToDoItem(models.Model):
             return True
         return False
 
-    def __unicode__(self):
-            return self.name
-
-    @models.permalink
-    def get_absolute_url(self):
-        return ('todoitem_details', [str(self.id)])
-
-    class Meta:
-        get_latest_by = "creation_date"
-        ordering = ["-creation_date"]
-
-    def save(self, user=None, *args, **kwargs):
-        # Only adds a creator when the object is first created
-        if user and not self.id:
-            self.creator = user
-        super(ToDoItem, self).save(*args, **kwargs)  # Call the "real" save() method.

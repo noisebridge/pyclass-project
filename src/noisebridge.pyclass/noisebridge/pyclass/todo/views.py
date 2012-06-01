@@ -51,6 +51,7 @@ def complete_todo(request, pk):
                  "message": "Are you sure you want to complete '" + todo.name + "'' ?"
     })
 
+
 @login_required
 def whatcanido(request):
     cando_list = ToDoItem.objects.all()

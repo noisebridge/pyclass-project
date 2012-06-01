@@ -10,12 +10,12 @@ class Interest(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        ordering = ["name"]
+
     @models.permalink
     def get_absolute_url(self):
         return ('interest_details', [str(self.id)])
-
-    class Meta:
-        ordering = ["name"]
 
 
 class UserProfile(models.Model):
@@ -27,15 +27,15 @@ class UserProfile(models.Model):
     interests = models.ManyToManyField(Interest)
     excellence = models.PositiveIntegerField(default=0)
 
-    def reset_avatar(self):
-        self.avatar = self.DEFAULT_AVATAR
-        self.save()
-
     def __unicode__(self):
         return self.user.username
 
     class Meta:
         ordering = ["user"]
+
+    def reset_avatar(self):
+        self.avatar = self.DEFAULT_AVATAR
+        self.save()
 
 
 def create_user_profile(sender, instance, created, **kwargs):
