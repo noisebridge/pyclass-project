@@ -148,6 +148,13 @@ ABSOLUTE_URL_OVERRIDES = {
 
 LOGIN_REDIRECT_URL = "/"
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+# TODO Update with actual data when site is deployed.
+EMAIL_HOST_USER = 'username@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.

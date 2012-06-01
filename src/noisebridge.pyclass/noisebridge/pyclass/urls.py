@@ -11,8 +11,9 @@ urlpatterns = patterns('',
     url(r'^profile/', include('pyclass.profiles.urls')),
     url(r'^todo/', include('pyclass.todo.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
-    # Sets up default URLs for django-registration
-    #url(r'^accounts/', include('registration.backends.default.urls')),
+    # Enables the default backend for django-registration.
+    # TODO Set up (or remove) Site and correct e-mail and password before using
+    # url(r'^accounts/', include('registration.backends.default.urls')),
 
     #Simplified registration (no email sent)
     url(r'^accounts/', include('registration.backends.simple.urls')),
