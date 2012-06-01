@@ -15,6 +15,7 @@ class AddToDo(CreateView):
         todo = form.save(commit=False)
         # Must be passed to populate the "creator" field, which is required.
         todo.save(self.request.user)
+        form.save_m2m()
         messages.success(self.request, "Task added")
         return redirect(todo)
 
