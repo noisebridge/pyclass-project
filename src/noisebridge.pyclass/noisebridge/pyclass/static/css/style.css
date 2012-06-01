@@ -1,10 +1,10 @@
 .header, .messages, .nav {
-    margin: 0px;
+    margin: 0;
 }
 
 .nav ul, .messages, ul.errorlist {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
     background: url(/static/NB-logo-red-black-small.png) no-repeat;
     height: 50px;
     width: 50px;
-    margin: 0px;
+    margin: 0;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -29,7 +29,7 @@ body {
 
 .site_title {
     float: left;
-    padding: 10px 20px 0px 20px;
+    padding: 10px 20px 0 20px;
     font-size: 25px;
     display: block;
     font-weight: bold;
@@ -37,7 +37,7 @@ body {
 
 .login {
     float: right;
-    padding: 15px 10px 0px 0px;
+    padding: 15px 10px 0 0;
 }
 
 .login a, .nav a {
@@ -54,8 +54,8 @@ body {
 
 .login_item:first-child {
     border-left: medium none;
-    margin-left: 0px;
-    padding-left: 0px;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .nav, .nav li ul {
@@ -115,7 +115,7 @@ body {
     -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     text-align: center;
-    margin: 4px 0px;
+    margin: 4px 0;
     padding: 6px 10px;
     font-size: 80%;
     font-weight: bold;
@@ -123,13 +123,13 @@ body {
 }
 
 .content {
-    padding: 10px 0px 10px 10px;
+    padding: 10px 0 10px 10px;
     background-color: #a5a5a5;
 }
 
 .footer {
     background-color: #2a2a2a;
-    padding: 10px 0px;
+    padding: 10px 0;
 }
 
 .small {
