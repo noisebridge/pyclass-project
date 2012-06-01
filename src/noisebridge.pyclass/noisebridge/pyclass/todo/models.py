@@ -16,6 +16,8 @@ class Tag(models.Model):
     class Meta:
         ordering = ["name"]
 
+    def get_absolute_url(self):
+        return ('tags', [str(self.id)])
 
 class ToDoItem(models.Model):
     IMPORTANCE_CHOICES = (
