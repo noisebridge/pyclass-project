@@ -16,8 +16,6 @@ class Tag(models.Model):
     class Meta:
         ordering = ["name"]
 
-    def get_absolute_url(self):
-        return ('tags', [str(self.id)])
 
 class ToDoItem(models.Model):
     IMPORTANCE_CHOICES = (
@@ -27,16 +25,16 @@ class ToDoItem(models.Model):
         (0, "None")
     )
     STATUS_CHOICES = (
-        ("Open", "Open"),
-        ("In Progress", "In Progress"),
-        ("Completed", "Completed")
+        ("O", "Open"),
+        ("IP", "In Progress"),
+        ("C", "Completed")
     )
     name = models.CharField(max_length=150)
     details = models.TextField(default="", blank=True)
     excellence = models.PositiveIntegerField(default=0)
     importance = models.IntegerField(max_length=1, choices=IMPORTANCE_CHOICES, default="0")
     due = models.DateField(blank=True, null=True)
-    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="Open")
+    status = models.CharField(max_length=2, choices=STATUS_CHOICES, default="O")
     completed_by = models.ForeignKey(User, blank=True, null=True, related_name='todos_completed')
     completion_date = models.DateTimeField(blank=True, null=True, editable=False)
     interests = models.ManyToManyField(Interest, blank=True)
@@ -50,8 +48,8 @@ class ToDoItem(models.Model):
     @method_decorator(login_required)
     def complete(self, request, user):
         """Marks the item as completed and assigns it's excellence to the user"""
-        if self.status != "Completed":
-            self.status = "Completed"
+        if self.status != "C":
+            self.status = "C"
             self.completed_by = user
             self.completion_date = datetime.now()
             self.save()
@@ -63,8 +61,8 @@ class ToDoItem(models.Model):
     @method_decorator(login_required)
     def claim(self, request, user):
         """Allows a user to claim the item"""
-        if self.status != "Completed":
-            self.status = "In Progress"
+        if self.status != "C":
+            self.status = "IP"
             self.users_claimed.add(user)
             self.save()
             return True
