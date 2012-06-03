@@ -1,37 +1,54 @@
 {% extends "base.html" %}
+{% load humanize %}
 {% load comments %}
 
 {% block content %}
     <h1>{{ todoitem.name }}</h1>
     <p>{{ todoitem.details }}</p>
+	<p>Created by: {{ todoitem.creator }}
+        {% if creation_date_offset %}
+            on
+        {% endif %}
+        {{ creation_date.date|naturalday }} at
+        {{ creation_date.time }}</p>
     <p>Excellence: {{ todoitem.excellence }}</p>
-    <p>Due: {{todoitem.due }}</p>
+    <p>Due: {{todoitem.due|naturalday }}</p>
     <p>Importance: {{ todoitem.importance }}</p>
     <p>Status: {{ todoitem.status }}</p>
     {% if todoitem.status == 'C' %}
-		<p>Completed by: {{ todoitem.completed_by }}</p>
-		<p>Completed on: {{ todoitem.completion_date }}</p>
+        <p>Completed by: {{ todoitem.completed_by }}
+            {% if completion_date_offset %}
+                on
+            {% endif %}
+            {{ completion_date.date|naturalday }} at
+            {{ completion_date.time}}</p>
     {% endif %}
 
     <h2>Interests</h2>
-	<ul>
-	{% for interest in todoitem.interests.all %}
-		<li><a href={{ "interest.get_absolute_url" }}>{{ interest.name }}</a></li>
-	{% endfor %}
-	</ul>
+    <ul>
+    {% for interest in todoitem.interests.all %}
+        <li><a href={{ "interest.get_absolute_url" }}>{{ interest.name }}</a></li>
+    {% empty %}
+        This task has no interests defined.
+    {% endfor %}
+    </ul>
 
     <h2>Tags</h2>
-	<ul>
-	{% for tag in todoitem.tags.all %}
-		<li><a href={{ "tag.get_absolute_url" }}>{{ tag.name }}</a></li>
-	{% endfor %}
-	</ul>
+    <ul>
+    {% for tag in todoitem.tags.all %}
+        <li><a href={{ "tag.get_absolute_url" }}>{{ tag.name }}</a></li>
+    {% empty %}
+        This task has no tags defined.
+    {% endfor %}
+    </ul>
 
     {% with claims=todoitem.users_claimed.all %}
         <h2>Claims</h2>
         <ul>
         {% for user in claims %}
             <li><a href={{ "user.get_absolute_url" }}>{{ user.username }}</a></li>
+        {% empty %}
+            This task has not been claimed by anyone.
         {% endfor %}
         </ul>
 
