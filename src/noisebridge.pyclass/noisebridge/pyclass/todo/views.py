@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
+from django.views.generic.base import View
 from django.views.generic.edit import CreateView
 
 from pyclass.todo.models import ToDoItem
@@ -51,32 +52,41 @@ class ToDoDetailView(DetailView):
         return context
 
 
-@login_required
-def claim_todo(request, pk):
-    todo = ToDoItem.objects.get(id=pk)
-    if request.method == "POST":
-        user = request.user
-        todo.claim(request, user)
-        messages.success(request, "ToDo claimed")
-        return redirect(user)
-    return render(request, "confirm_action.html",
-                 {"title": "Claim ToDo",
-                 "message": "Are you sure you want to claim '" + todo.name + "'' ?"
-    })
+class ToDoMethodCall(View):
+    """Processes incoming method calls for ToDoItem objects"""
 
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ToDoMethodCall, self).dispatch(*args, **kwargs)
 
-@login_required
-def complete_todo(request, pk):
-    todo = ToDoItem.objects.get(id=pk)
-    if request.method == "POST":
-        user = request.user
-        todo.complete(request, user)
-        messages.success(request, "ToDo completed")
-        return redirect(user)
-    return render(request, "confirm_action.html",
-                 {"title": "Complete ToDo",
-                 "message": "Are you sure you want to complete '" + todo.name + "'' ?"
-    })
+    def get(self, *args, **kwargs):
+        todo = ToDoItem.objects.get(pk=kwargs["pk"])
+        method = kwargs["method"]
+        if method == "claim":
+            # This might look unnecessary, but it prevents methods without the
+            # same name as their action from looking weird
+            action = "claim"
+        elif method == "complete":
+            action = "complete"
+        else:
+            messages.error(self.request, "Invalid method specified")
+            return redirect(todo)
+        context = {"title": "{0} ToDo".format(action.capitalize()),
+                   "message": "Are you sure you want to {0}\
+                        <strong>{1}</strong> ?".format(action, todo.name)}
+        return render(self.request, "confirm_action.html", context)
+
+    def post(self, *args, **kwargs):
+        todo = ToDoItem.objects.get(pk=kwargs["pk"])
+        method = kwargs["method"]
+        user = self.request.user
+        if method == "claim":
+            todo.claim(self.request, user)
+            messages.success(self.request, "ToDo claimed")
+        elif method == "complete":
+            todo.complete(self.request, user)
+            messages.success(self.request, "ToDo completed")
+        return redirect(todo)
 
 
 @login_required

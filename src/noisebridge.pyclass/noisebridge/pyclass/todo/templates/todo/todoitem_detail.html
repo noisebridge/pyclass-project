@@ -54,9 +54,9 @@
 
         {% if todoitem.status != 'C' %}
             {% if not user in claims %}
-                <a href="{% url claim_todo todoitem.pk %}">Claim Task</a>
+                <a href="{% url todoitem_methods pk=todoitem.pk method='claim' %}">Claim Task</a>
             {% endif %}
-            <a href="{% url complete_todo todoitem.pk %}">Complete Task</a>
+            <a href="{% url todoitem_methods pk=todoitem.pk method='complete' %}">Complete Task</a>
         {% endif %}
     {% endwith %}
 
