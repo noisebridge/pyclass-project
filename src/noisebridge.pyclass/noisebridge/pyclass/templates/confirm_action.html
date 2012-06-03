@@ -4,7 +4,7 @@
 {% endblock title %}
 
 {% block content %}
-    <p>{{ message }}</p>
+    <p>{{ message|safe }}</p>
     <form action="." method="post">
         {% csrf_token %}
         <input type="submit" value="Yes, I'm sure">
