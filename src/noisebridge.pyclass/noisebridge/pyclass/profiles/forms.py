@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
+from pyclass.fields import CommaSeparatedCharField
 from pyclass.profiles.models import UserProfile
 
 
@@ -12,7 +13,7 @@ class SearchForm(forms.Form):
 
 
 class AddInterestForm(forms.Form):
-    interest = forms.CharField(max_length=300)
+    interests = CommaSeparatedCharField(max_length=300)
 
 
 class UserSettingsForm(forms.ModelForm):

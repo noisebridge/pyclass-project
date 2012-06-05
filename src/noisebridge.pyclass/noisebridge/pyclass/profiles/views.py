@@ -34,23 +34,29 @@ def search_interests(request):
 @login_required
 def add_interests(request):
     """
-    Adds an interest to the user's profile. If it doesn't exist, adds it to database first.
+    Adds interests to the user's profile.
+    If an interest doesn't exist, adds it to the database first.
     """
     if request.method == "POST":
         form = AddInterestForm(request.POST)
         if form.is_valid():
-            i = form.cleaned_data["interest"]
-            interest_list = Interest.objects.filter(name=i).count()
-            if not interest_list:
-                interest = Interest(name=i)
-                interest.save()
-            else:
-                interest = Interest.objects.get(name=i)
             profile = request.user.userprofile
-            profile.interests.add(interest)
+            interests = form.cleaned_data["interests"]
+            for i in interests:
+                interest_list = Interest.objects.filter(name=i).count()
+                if not interest_list:
+                    interest = Interest(name=i)
+                    interest.save()
+                else:
+                    interest = Interest.objects.get(name=i)
+                profile.interests.add(interest)
             profile.save()
-            messages.success(request, "Interest added.")
-            return redirect(interest)
+            if len(interests) > 1:
+                messages.success(request, "Interests added.")
+                return redirect(request.user)
+            else:
+                messages.success(request, "Interest added.")
+                return redirect(interest)
     else:
         form = AddInterestForm()
     return render(request, "profiles/addinterest.html", {"form": form})
