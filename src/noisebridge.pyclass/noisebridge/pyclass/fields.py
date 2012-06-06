@@ -40,8 +40,8 @@ class CommaSeparatedCharField(Field):
         super(CommaSeparatedCharField, self).validate(value)
 
         if self.max_items is not None and len(value) > self.max_items:
-                    raise ValidationError(self.error_messages['max_items']
-                                          % self.max_items)
+            raise ValidationError(self.error_messages['max_items']
+                                  % self.max_items)
         if self.min_length is not None:
             for string in value:
                 if len(string) < self.min_length:
