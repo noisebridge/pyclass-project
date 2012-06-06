@@ -33,24 +33,41 @@
         </ul>
         <h2>Tasks</h2>
         <hr>
-        {# TODO: rewrite to scale to large numbers of items #}
-        <h3>Tasks Claimed</h3>
-        <ul>
-            {% for todo in requested_user.todos_claimed.all %}
-                <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
-            {% endfor %}
-        </ul>
-        <h3>Tasks Created</h3>
-        <ul>
-            {% for todo in requested_user.todos_created.all %}
-                <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
-            {% endfor %}
-        </ul>
-        <h3>Tasks Completed</h3>
-        <ul>
-            {% for todo in requested_user.todos_completed.all %}
-                <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
-            {% endfor %}
-        </ul>
+        {# The number of items to display for each category #}
+        {% with display=5 %}
+            <h3>Tasks Claimed</h3>
+            <ul>
+                {% for todo in requested_user.todos_claimed.all %}
+                    {% if forloop.counter <= display %}
+                        <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% if requested_user.todos_claimed.all|length > display %}
+                <a href="#">More</a>
+            {% endif %}
+            <h3>Tasks Created</h3>
+            <ul>
+                {% for todo in requested_user.todos_created.all %}
+                    {% if forloop.counter <= display %}
+                        <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% if requested_user.todos_created.all|length > display %}
+                <a href="#">More</a>
+            {% endif %}
+            <h3>Tasks Completed</h3>
+            <ul>
+                {% for todo in requested_user.todos_completed.all %}
+                    {% if forloop.counter <= display %}
+                        <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% if requested_user.todos_completed.all|length > display %}
+                <a href="#">More</a>
+            {% endif %}
+        {% endwith %}
     {% endif %}
 {% endblock content %}
