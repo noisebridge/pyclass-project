@@ -14,18 +14,21 @@
         <div class="pagination">
             <span class="step_links">
                 {% if page_obj.has_previous %}
+                    <a href="?page=1">first</a>
                     <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                 {% endif %}
-                {% for page in paginator.page_range %}
-                    {% if page == page_obj.number %}
-                        {{ page }}
-                    {% else %}
-                        <a href="?page={{ page }}" class="page_link">{{ page }}</a>
-                    {% endif %}
-                {% endfor %}
+                {% with page_obj.number as current_page  %}
+                    {% for page in paginator.page_range %}
+                        {% if page == current_page %}
+                            {{ page }}
+                        {% else %}
+                            <a href="?page={{ page }}" class="page_link">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
                 {% if page_obj.has_next %}
-                    <a href="?page=last">last</a>
                     <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page=last">last</a>
                 {% endif %}
             </span>
         </div>
