@@ -18,8 +18,9 @@ class Tag(models.Model):
     class Meta:
         ordering = ["name"]
 
+    @models.permalink
     def get_absolute_url(self):
-        return ('tags', [str(self.id)])
+        return ('tag_detail', [str(self.id)])
 
 
 class ToDoItem(models.Model):
