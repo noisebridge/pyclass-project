@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for todo in todoitem_list %}
+            <li><a href="{{ todo.get_absolute_url }}">{{ todo.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

@@ -93,3 +93,8 @@ class ToDoMethodCall(View):
 def whatcanido(request):
     cando_list = ToDoItem.objects.all()
     return render(request, "todo/todoitem_list.html", {"todoitem_list": cando_list})
+
+def tags(request, tag):
+    return render(request, "todo/todoitem_tags.html")
+
+

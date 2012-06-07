@@ -11,4 +11,5 @@ urlpatterns = patterns('pyclass.todo.views',
     url(r'^add/$', AddToDo.as_view(), name="add_todo"),
     url(r'^methods/(?P<pk>\d+)/(?P<method>\w+)/$', ToDoMethodCall.as_view(), name="todoitem_methods"),
     url(r'^whatcanido/$', "whatcanido", name="whatcanido"),
+    url(r'^tags/(?P<tag>\w+)/$', 'tags'),
 )
