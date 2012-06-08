@@ -10,7 +10,7 @@ from pyclass.profiles.models import Interest
 
 class Tag(models.Model):
     """A descriptive item that is not necessarily an interest"""
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
 
     def __unicode__(self):
         return self.name

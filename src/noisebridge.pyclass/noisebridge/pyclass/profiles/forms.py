@@ -13,7 +13,7 @@ class SearchForm(forms.Form):
 
 
 class AddInterestForm(forms.Form):
-    interests = CommaSeparatedCharField(max_length=300)
+    interests = CommaSeparatedCharField(max_length=50)
 
 
 class UserSettingsForm(forms.ModelForm):

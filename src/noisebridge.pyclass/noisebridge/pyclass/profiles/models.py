@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 class Interest(models.Model):
-    name = models.CharField(max_length=300)
+    name = models.CharField(max_length=50, unique=True)
 
     def __unicode__(self):
         return self.name
