@@ -6,8 +6,8 @@
     <h1>{{ todoitem.name }}</h1>
     <p>{{ todoitem.details }}</p>
 	<p>Created by: {{ todoitem.creator }}
-        {# Determine how best to display the date. creation_date_offset will be True if
-        the date is within one day of now. #}
+        {# Determine how best to display the date. creation_date_offset will be True if #}
+        {# the date is within one day of now. #}
         {% if creation_date_offset %}
             on
         {% endif %}
