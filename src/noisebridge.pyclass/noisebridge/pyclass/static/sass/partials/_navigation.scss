@@ -1,0 +1,75 @@
+.navbar { margin-bottom: 3px;}
+.navbar-inner { position: relative; }
+.navbar .nav > li {
+	font: 20px bold Arial, sans-serif;
+	a { color: $white;}
+	a.joinlink { color: #ff5a00;}
+}
+.logo {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	width: 211px;
+	height: 70px;
+	margin: 0;
+	padding: 0;
+	background: $white url(/img/titanmen_logo_211x70.png) no-repeat;
+}
+h2.joinlink {
+	font: 28px/28px bold "Arial Black", sans-serif;
+	margin-top: 0;
+
+	a { color:#ff5a00; }
+}
+.loginform input { width: 150px; }
+
+nav#MainMenu {
+	width:940px;
+	height:43px;
+	background: #464646;
+	ul { list-style:none;
+        margin: 0 0 0 20px;
+    }
+    li {
+    	float:left;
+    	display:block;
+    	text-align:center;
+    	position:relative;
+    	padding: 4px 10px;
+    	margin: 7px 0 0 0;
+    	border-right:1px solid #666;
+    	font: 15px "Arial Black", sans-serif;
+    	text-transform: uppercase;
+        &:hover {
+            border: 1px solid #777777;
+            padding: 4px 9px 4px 9px;
+            background: #F4F4F4;
+            background: -moz-linear-gradient(top, #F4F4F4, #EEEEEE);
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F4F4F4), to(#EEEEEE));
+            -moz-border-radius: 5px 5px 0px 0px;
+            -webkit-border-radius: 5px 5px 0px 0px;
+            border-radius: 5px 5px 0px 0px;
+        }
+    }
+}
+
+//	a {
+//		text-decoration: none;
+//		color: $titanOrange;
+//	}
+//	&:after {
+//		content: "\2023";
+//		color: $titanOrange;
+//		font-size: 50px;
+//		//width: 0;
+//		//height: 0;
+//		//border-top: 14px solid transparent;
+//		//border-bottom: 14px solid transparent;
+//		//border-left: 50px solid $titanOrange;
+//		//position: absolute;
+		//top: 50%;
+		//margin-top: -28px;
+		//left: 100%;
+		//z-index: 2;
+//	}
+//}
