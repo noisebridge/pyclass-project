@@ -70,14 +70,11 @@
 
 // Your css goes here
 
-    body {
-    background: $white url(/img/bg.jpg) top center fixed no-repeat;
-    background-size: cover;
-}
-#wrapper {
-	@include container-fixed();
-	@include grid-core($gridColumnWidth, $gridGutterWidth);
-}
+    //body {
+    //background: $white url(/img/bg.jpg) top center fixed no-repeat;
+    //background-size: cover;
+//}
+
 
 
 // helper classes
