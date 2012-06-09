@@ -15,3 +15,6 @@ build
 mydatabase.db
 *.log
 src/noisebridge.pyclass/noisebridge/pyclass/media/**
+
+src/noisebridge.pyclass/noisebridge/pyclass/static/compass_app_log.txt
+src/noisebridge.pyclass/noisebridge/pyclass/static/.sass-cache/
