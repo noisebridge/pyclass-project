@@ -4,9 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <link href="{{ STATIC_URL }}css/normalize.css" rel="stylesheet" />
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"  />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>NoiseList | {% block title %}Home{% endblock %}</title>
 </head>
 
@@ -66,6 +64,13 @@
         <small class="small">Noisebridge 2012</small>
         {% endblock footer %}
     </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <!--<script src="js/plugins.js"></script>
+  <script src="js/script.js"></script> -->
+
+  <script>
 </body>
 
 </html>
