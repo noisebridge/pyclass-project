@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'registration',
     'south',
+    'crispy_forms',
     'pyclass.profiles',
     'pyclass.todo'
 )

@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
 {% block title %}
     {{ user.username }} - Settings
 {% endblock title %}
@@ -15,8 +18,8 @@
     <form enctype="multipart/form-data" action="." method="post">
         {% csrf_token %}
         <table>
-            {{ user_form.as_table }}
-            {{ profile_form.as_table }}
+            {{ user_form|crispy }}
+            {{ profile_form|crispy }}
         </table>
         <input type="submit" value="Update Settings">
     </form>
