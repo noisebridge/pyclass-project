@@ -8,11 +8,6 @@
 
 {% block content %}
     <h1>User Settings</h1>
-    {% if user_form.errors %}
-        <p class="error_notification">Please correct the error{{ user_form.errors|pluralize }} below. </p>
-    {% elif profile_form.errors %}
-        <p class="error_notification">Please correct the error{{ profile_form.errors|pluralize }} below. </p>
-    {% endif %}
     <a href="{% url auth_password_change %}">Change password</a>
     <a href="{% url reset_avatar %}">Reset avatar to default</a>
     <form enctype="multipart/form-data" action="." method="post">

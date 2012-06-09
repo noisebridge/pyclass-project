@@ -13,7 +13,9 @@ def search_interests(request):
     """
     if "query" and "query_type" in request.GET:
         form = SearchForm(request.GET)
-        if form.is_valid():
+        if not form.is_valid():
+            messages.error(request, "Form contains errors.")
+        else:
             cd = form.cleaned_data
             query = cd["query"]
             query_type = cd["query_type"]
@@ -39,7 +41,9 @@ def add_interests(request):
     """
     if request.method == "POST":
         form = AddInterestForm(request.POST)
-        if form.is_valid():
+        if not form.is_valid():
+            messages.error(request, "Form contains errors.")
+        else:
             profile = request.user.userprofile
             interests = form.cleaned_data["interests"]
             for i in interests:
@@ -85,6 +89,8 @@ def update_settings(request):
             profile_form.save()
             messages.success(request, "Profile details updated.")
             return redirect(user)
+        else:
+            messages.error(request, "Form contains errors.")
     else:
         user_form = UserSettingsForm(initial={
             "first_name": user.first_name,
