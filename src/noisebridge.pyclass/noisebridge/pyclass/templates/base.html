@@ -17,63 +17,89 @@
 </head>
 
 <body>
-    <header class="header cf">
+    <div class="container"> <!-- Start Containter Center page -->
         {% block header %}
-            <a href="/" title="Noisebridge" class="logo">Noisebridge</a>
-            <div class="site_title">Noiselist</div>
-            <div class="login">
-            	{# <a href="{% url index %}">{% trans "Home" %}</a> | #}
-
-                {% if user.is_authenticated %}
-                    <a class="login_item" href="{{ user.get_absolute_url }}">{{ user.username }}</a>
-                    <a class="login_item" href="{% url user_settings %}">{% trans "Settings" %}</a>
-                    <a class="login_item" href="{% url auth_logout %}">{% trans "Log out" %}</a>
-                {% else %}
-                    <a class="login_item" href="{% url auth_login %}">{% trans "Log in" %}</a>
-                    <a class="login_item" href="{% url registration_register %}">{% trans "Register" %}</a>
-                {% endif %}
-            </div>
-        {% endblock header %}
-    </header>
-
-    <nav class="nav cf">
-        <ul>
-            <li><a href="/">{% trans "Home" %}</a></li>
-            <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
-            <li><a href="#">{% trans "ToDo" %}</a>
-                <ul>
-                    <li><a href="{% url todo_list %}">{% trans "List All Tasks" %}</a></li>
-                    <li><a href="{% url add_todo %}">{% trans "Add Task" %}</a></li>
-                    <li><a href="#">{% trans "Add Tag" %}</a></li>
-                    <li><a href="{% url whatcanido %}">{% trans "What Can I Do?" %}</a></li>
-                </ul>
-            </li>
-            <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
-        </ul>
-    </nav>
-
-    <section class="content cf">
-        {% if messages %}
-            <div class="container">
-                <ul class="messages">
-                    {% for message in messages %}
+        <header>
+            <nav>
+            <div class="navbar">
+                <div class="navbar-inner">
                     <div class="container">
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    </div>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-        {% block content %}{% endblock content %}
-    </section>
+                            <a class="brand" href="/">Noisebridge</a>
+                            <ul class="nav mainMenu">
+                                <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle"data-toggle="dropdown">{% trans "ToDo" %}<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url todo_list %}">{% trans "List All Tasks" %}</a></li>
+                                        <li><a href="{% url add_todo %}">{% trans "Add Task" %}</a></li>
+                                        <li><a href="#">{% trans "Add Tag" %}</a></li>
+                                        <li><a href="{% url whatcanido %}">{% trans "What Can I Do?" %}</a></li>
+                                    </ul>
+                                </li>
 
-    <footer class="footer cf">
+                                <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
+                            </ul>
+                                <form class="navbar-search pull-left">
+    <input type="text" class="search-query" placeholder="Search">
+    </form>
+                            <ul class="nav login pull-right">
+                                {% if user.is_authenticated %}
+                                    <li><a class="login_item" href="{{ user.get_absolute_url }}">{{ user.username }}</a></li>
+                                    <li><a class="login_item" href="{% url user_settings %}">{% trans "Settings" %}</a></li>
+                                    <li><a class="login_item" href="{% url auth_logout %}">{% trans "Log out" %}</a></li>
+                                {% else %}
+                                    <li><a class="login_item" href="{% url auth_login %}">{% trans "Log in" %}</a></li>
+                                    <li><a class="login_item" href="{% url registration_register %}">{% trans "Register" %}</a></li>
+                                {% endif %}
+                            </ul>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            </nav>
+        </header>
+        {% endblock header %}
+
+
+        <!-- Message System -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %} {{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Main Content Block -->
+        {% block content %}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {% endblock content %}
+
         {% block footer %}
-        <small class="small">Noisebridge 2012</small>
+        <footer>
+            <p>Noisebridge 2012</p>
+        </footer>
         {% endblock footer %}
-    </footer>
+
+    </div> <!-- End overall container -->
+
+
+
+
+
+
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
 
   <!--<script src="js/plugins.js"></script>
   <script src="js/script.js"></script> -->
