@@ -14,19 +14,23 @@
     <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet"  />
     <script src="{{ STATIC_URL }}js/modernizr-2.5.3.min.js"></script>
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
 
 </head>
 
 <body>
-    <div class="container"> <!-- Start Containter Center page -->
-        {% block header %}
+    {% block header %}
         <header>
             <nav>
-            <div class="navbar">
-                <div class="navbar-inner">
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner mainnav">
                     <div class="container">
                             <a class="brand" href="/">Noisebridge</a>
-                            <ul class="nav mainMenu">
+                            <ul class="nav">
                                 <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
                                 <li class="dropdown"><a href="#" class="dropdown-toggle"data-toggle="dropdown">{% trans "ToDo" %}<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -63,6 +67,8 @@
             </nav>
         </header>
         {% endblock header %}
+    <div class="container"> <!-- Start Containter Center page -->
+
 
 
         <!-- Message System -->
