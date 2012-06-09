@@ -8,14 +8,14 @@
 
 {% block content %}
     <h1>User Settings</h1>
-    <a href="{% url auth_password_change %}">Change password</a>
-    <a href="{% url reset_avatar %}">Reset avatar to default</a>
+    <a class="btn" href="{% url auth_password_change %}">Change password</a>
+    <a class="btn" href="{% url reset_avatar %}">Reset avatar to default</a>
     <form enctype="multipart/form-data" action="." method="post">
         {% csrf_token %}
         <table>
             {{ user_form|crispy }}
             {{ profile_form|crispy }}
         </table>
-        <input type="submit" value="Update Settings">
+        <input class="btn btn-primary" type="submit" value="Update Settings">
     </form>
 {% endblock content %}
