@@ -181,7 +181,7 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: white;
+  background-color: #ededed;
 }
 
 /* line 22, ../sass/partials/_scaffolding.scss */
@@ -218,7 +218,9 @@ a:hover {
 }
 
 /* line 574, ../sass/partials/_mixins.scss */
-.container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
   width: 940px;
 }
 
@@ -5450,150 +5452,7 @@ a.label:hover, a.badge:hover {
   visibility: hidden;
 }
 
-/* line 73, ../sass/style.scss */
-body {
-  background: white url(/img/bg.jpg) top center fixed no-repeat;
-  background-size: cover;
-}
-
-/* line 77, ../sass/style.scss */
-#wrapper {
-  margin-right: auto;
-  margin-left: auto;
-  *zoom: 1;
-}
-/* line 15, ../sass/partials/_mixins.scss */
-#wrapper:before, #wrapper:after {
-  display: table;
-  content: "";
-}
-/* line 19, ../sass/partials/_mixins.scss */
-#wrapper:after {
-  clear: both;
-}
-/* line 561, ../sass/partials/_mixins.scss */
-#wrapper .row {
-  margin-left: -20px;
-  *zoom: 1;
-}
-/* line 15, ../sass/partials/_mixins.scss */
-#wrapper .row:before, #wrapper .row:after {
-  display: table;
-  content: "";
-}
-/* line 19, ../sass/partials/_mixins.scss */
-#wrapper .row:after {
-  clear: both;
-}
-/* line 566, ../sass/partials/_mixins.scss */
-#wrapper [class*="span"] {
-  float: left;
-  margin-left: 20px;
-}
-/* line 574, ../sass/partials/_mixins.scss */
-#wrapper .container,
-#wrapper .navbar-fixed-top .container,
-#wrapper .navbar-fixed-bottom .container {
-  width: 940px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span12 {
-  width: 940px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span11 {
-  width: 860px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span10 {
-  width: 780px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span9 {
-  width: 700px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span8 {
-  width: 620px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span7 {
-  width: 540px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span6 {
-  width: 460px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span5 {
-  width: 380px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span4 {
-  width: 300px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span3 {
-  width: 220px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span2 {
-  width: 140px;
-}
-/* line 581, ../sass/partials/_mixins.scss */
-#wrapper .span1 {
-  width: 60px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset12 {
-  margin-left: 980px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset11 {
-  margin-left: 900px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset10 {
-  margin-left: 820px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset9 {
-  margin-left: 740px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset8 {
-  margin-left: 660px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset7 {
-  margin-left: 580px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset6 {
-  margin-left: 500px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset5 {
-  margin-left: 420px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset4 {
-  margin-left: 340px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset3 {
-  margin-left: 260px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset2 {
-  margin-left: 180px;
-}
-/* line 587, ../sass/partials/_mixins.scss */
-#wrapper .offset1 {
-  margin-left: 100px;
-}
-
-/* line 84, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
 .replace {
   text-indent: 100%;
   white-space: nowrap;
