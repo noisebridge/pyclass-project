@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}
 	Add Interests
 {% endblock title %}
 
 {% block content %}
 	<h2>Add Interests</h2>
-	{% if form.errors %}
-		<p class="error_notification">Please correct the error{{ form.errors|pluralize }} below. </p>
-	{% endif %}
 	<form action="" method="post">
 		{% csrf_token %}
 		<table>
-            {{ form.as_table }}
+            {{ form|crispy }}
         </table>
 		<p>Please separate multiple interests with commas, (e.g. "Interest 1, Interest 2")</p>
 		<input type="submit" value="Add Interests">

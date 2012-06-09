@@ -11,26 +11,26 @@
         {% endfor %}
     </ul>
     {% if is_paginated %}
-        <div class="pagination">
-            <span class="step_links">
+        <div class="pagination pagination-centered">
+            <ul>
                 {% if page_obj.has_previous %}
-                    <a href="?page=1">first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    <li><a href="?page=1">first</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>
                 {% endif %}
                 {% with page_obj.number as current_page  %}
                     {% for page in paginator.page_range %}
                         {% if page == current_page %}
-                            {{ page }}
+                            <li class="active"><a href="?page={{ page }}" class="page_link">{{ page }}</a></li>
                         {% else %}
-                            <a href="?page={{ page }}" class="page_link">{{ page }}</a>
+                            <li><a href="?page={{ page }}" class="page_link">{{ page }}</a></li>
                         {% endif %}
                     {% endfor %}
                 {% endwith %}
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page=last">last</a>
+                    <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
+                    <li><a href="?page=last">last</a></li>
                 {% endif %}
-            </span>
+            </ul>
         </div>
     {% endif %}
 {% endblock content %}
