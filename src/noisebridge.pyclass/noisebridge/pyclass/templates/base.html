@@ -43,9 +43,9 @@
 
                                 <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
                             </ul>
-                                <form class="navbar-search pull-left">
-    <input type="text" class="search-query" placeholder="Search">
-    </form>
+                                <form method="get" action="/search" class="navbar-search pull-left">
+                                    <input type="text" value="" name="s" class="search-query" placeholder="Search">
+                                </form>
                             <ul class="nav login pull-right">
                                 {% if user.is_authenticated %}
                                     <li><a class="login_item" href="{{ user.get_absolute_url }}">{{ user.username }}</a></li>

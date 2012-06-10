@@ -15,6 +15,9 @@ urlpatterns = patterns('',
     # TODO Set up (or remove) Site and correct e-mail and password before using
     # url(r'^accounts/', include('registration.backends.default.urls')),
 
+    # Url for search form in navbar
+    url(r'^search/', 'pyclass.views.search'),
+
     #Simplified registration (no email sent)
     url(r'^accounts/', include('registration.backends.simple.urls')),
 
