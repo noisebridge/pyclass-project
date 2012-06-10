@@ -24,52 +24,48 @@
 
 <body>
     {% block header %}
-        <header>
-            <nav>
+    <header>
+        <nav>
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner mainnav">
                     <div class="container">
-                            <a class="brand" href="/">Noisebridge</a>
-                            <ul class="nav">
-                                <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle"data-toggle="dropdown">{% trans "ToDo" %}<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{% url todo_list %}">{% trans "List All Tasks" %}</a></li>
-                                        <li><a href="{% url add_todo %}">{% trans "Add Task" %}</a></li>
-                                        <li><a href="#">{% trans "Add Tag" %}</a></li>
-                                        <li><a href="{% url whatcanido %}">{% trans "What Can I Do?" %}</a></li>
-                                    </ul>
-                                </li>
+                        <a class="brand" href="/">Noisebridge</a>
+                        <ul class="nav">
+                            <li><a href="{% url search_interests %}">{% trans "Search" %}</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle"data-toggle="dropdown">{% trans "ToDo" %}<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url todo_list %}">{% trans "List All Tasks" %}</a></li>
+                                    <li><a href="{% url add_todo %}">{% trans "Add Task" %}</a></li>
+                                    <li><a href="#">{% trans "Add Tag" %}</a></li>
+                                    <li><a href="{% url whatcanido %}">{% trans "What Can I Do?" %}</a></li>
+                                </ul>
+                            </li>
 
-                                <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
-                            </ul>
-                                <form method="get" action="/search" class="navbar-search pull-left">
-                                    <input type="text" value="" name="s" class="search-query" placeholder="Search">
-                                </form>
-                            <ul class="nav login pull-right">
-                                {% if user.is_authenticated %}
-                                    <li><a class="login_item" href="{{ user.get_absolute_url }}">{{ user.username }}</a></li>
-                                    <li><a class="login_item" href="{% url user_settings %}">{% trans "Settings" %}</a></li>
-                                    <li><a class="login_item" href="{% url auth_logout %}">{% trans "Log out" %}</a></li>
-                                {% else %}
-                                    <li><a class="login_item" href="{% url auth_login %}">{% trans "Log in" %}</a></li>
-                                    <li><a class="login_item" href="{% url registration_register %}">{% trans "Register" %}</a></li>
-                                {% endif %}
-                            </ul>
+                            <li><a href="{% url add_interest %}">{% trans "Add Interest" %}</a></li>
+                        </ul>
 
+                        <form method="get" action="/search" class="navbar-search pull-left">
+                            <input type="text" value="" name="s" class="search-query" placeholder="Search">
+                        </form>
 
-
-
-
+                        <ul class="nav login pull-right">
+                            {% if user.is_authenticated %}
+                            <li><a class="login_item" href="{{ user.get_absolute_url }}">{{ user.username }}</a></li>
+                            <li><a class="login_item" href="{% url user_settings %}">{% trans "Settings" %}</a></li>
+                            <li><a class="login_item" href="{% url auth_logout %}">{% trans "Log out" %}</a></li>
+                        {% else %}
+                            <li><a class="login_item" href="{% url auth_login %}">{% trans "Log in" %}</a></li>
+                            <li><a class="login_item" href="{% url registration_register %}">{% trans "Register" %}</a></li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
             </div>
-            </nav>
-        </header>
-        {% endblock header %}
+        </nav>
+    </header>
+    {% endblock header %}
+
     <div class="container"> <!-- Start Containter Center page -->
-
-
 
         <!-- Message System -->
         {% if messages %}
