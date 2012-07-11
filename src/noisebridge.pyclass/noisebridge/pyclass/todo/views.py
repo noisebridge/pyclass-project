@@ -1,4 +1,4 @@
-import datetime
+/import datetime
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -20,6 +20,7 @@ class AddToDo(CreateView):
         todo = form.save(commit=False)
         # Must be passed to populate the "creator" field, which is required.
         todo.save(self.request.user)
+        # Won't save many-to-many fields properly without this line
         form.save_m2m()
         messages.success(self.request, "Task added")
         return redirect(todo)
