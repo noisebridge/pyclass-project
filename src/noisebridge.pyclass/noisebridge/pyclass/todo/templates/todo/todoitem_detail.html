@@ -15,8 +15,8 @@
         {{ creation_date.time }}</p>
     <p>Excellence: {{ todoitem.excellence }}</p>
     <p>Due: {{todoitem.due|naturalday }}</p>
-    <p>Importance: {{ todoitem.importance }}</p>
-    <p>Status: {{ todoitem.status }}</p>
+    <p>Importance: {{ todoitem.get_importance_display }}</p>
+    <p>Status: {{ todoitem.get_status_display }}</p>
     {% if todoitem.status == 'C' %}
         <p>Completed by: {{ todoitem.completed_by }}
             {# See above for created #}
