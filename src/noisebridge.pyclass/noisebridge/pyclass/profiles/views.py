@@ -92,6 +92,7 @@ def update_settings(request):
         else:
             messages.error(request, "Form contains errors.")
     else:
+        # Done as two forms because we're using generic model forms
         user_form = UserSettingsForm(initial={
             "first_name": user.first_name,
             "last_name": user.last_name,
