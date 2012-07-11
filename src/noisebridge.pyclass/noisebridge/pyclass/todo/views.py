@@ -1,4 +1,4 @@
-/import datetime
+import datetime
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -34,6 +34,7 @@ class ToDoDetailView(DetailView):
     model = ToDoItem
 
     def get_context_data(self, **kwargs):
+        #Add additional data to the context to display date in a non-awkward sounding way
         context = super(ToDoDetailView, self).get_context_data(**kwargs)
         todo = super(ToDoDetailView, self).get_object()
         today = datetime.datetime.now().date()
