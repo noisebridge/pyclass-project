@@ -12,13 +12,13 @@ def search(request):
         Used to process search form. If user does not submit a valid for they
         are shown a new search form
     '''
-    if "s" in request.GET:
-        search_term = request.GET['s']
+    search_term = request.GET['s']
+    if search_term:
         interests = Interest.objects.filter(name__icontains=search_term)
         users = User.objects.filter(username__icontains=search_term)
         return render(request, "search_results.html", {"search_term": search_term,
             "users": users, "interests" : interests})
-    else:
-        messages.error(request, "You didn't ask for anything")
-        return render(request, "search_results.html")
+
+    messages.error(request, "You didn't ask for anything")
+    return render(request, "search_results.html")
 
